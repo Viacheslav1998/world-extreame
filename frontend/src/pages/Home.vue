@@ -1,8 +1,5 @@
 <template>
-	<h1>
-		this is home page
-		супер а теперь настрой линтер для backend
-	</h1>
+	<h1>Home</h1>
 	<p>welcome to the main page</p>
 </template>
 
