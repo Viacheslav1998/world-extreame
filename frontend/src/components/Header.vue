@@ -6,7 +6,7 @@
         rounded="md"
         class="d-flex align-center px-4 py-2 mt-4"
       >
-        <span class="text-h6 font-weight-bold">World-Extreame.com</span>
+        <span class="text-h6 font-weight-bold">World-<span class="text-red">Extreame</span>.com</span>
         <v-spacer />
         <v-btn variant="text">Главная</v-btn>
         <v-btn variant="text">Статистика</v-btn>
@@ -18,16 +18,54 @@
         no-gutters
         style="height: 300px;"
       >
-        <v-col align-self="end"  style="background-color: rgba(999, 999, 999, 0.7);">
+        <v-col align-self="center" style="background-color: rgba(999, 999, 999, 0.7);">
           <v-sheet 
             color="transparent"
           >
-            <h1 class="text-h2 font-weight-bold mt-4" style="color:rgba(000, 000, 000, 0.8)">Добро пожаловать</h1>
+            <h1 class="text-h3 font-weight-bold mt-4" style="color:rgba(000, 000, 000, 0.8)">Добро пожаловать</h1>
             <p class="text-h6 text-black">
               все новые экстримальные новости здесь
             </p>
           </v-sheet>
         </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container>
+      <v-row
+        class="mb-6"
+        no-gutters
+      >
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            col-auto
+          </v-sheet>
+        </v-col>
+
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            col-auto
+          </v-sheet>
+        </v-col>
+
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            col-auto
+          </v-sheet>
+        </v-col>
+
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            col-auto
+          </v-sheet>
+        </v-col>
+
+        <v-col>
+          <v-sheet class="pa-2 ma-2">
+            col-auto
+          </v-sheet>
+        </v-col>
+
       </v-row>
     </v-container>
   </div>
