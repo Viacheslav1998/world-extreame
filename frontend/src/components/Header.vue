@@ -35,12 +35,46 @@
       <v-sheet
         color="rgba(999, 999, 999, 0.7)"
       >
-        <v-row >
-          <v-col>
-            <v-sheet  elevation="1" class="ma-7">
+        <v-row no-gutters>
+          <v-col color="indigo">
+            <v-sheet 
+              color="indigo"
+              elevation="1"
+              class="ma-10 pa-3"
+            >
               <v-text-field
-                color="info"
-                placeholder="what "
+                label="Что надо искать?"
+                color="orange"
+                hide-details
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+
+           <v-col color="indigo">
+            <v-sheet 
+              color="indigo"
+              elevation="1"
+              class="ma-10 pa-3"
+            >
+              <v-text-field
+                label="Место"
+                color="orange"
+                hide-details
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+
+           <v-col color="indigo">
+            <v-sheet 
+              color="indigo"
+              elevation="1"
+              class="ma-10 pa-3"
+            >
+              <v-text-field
+                label="Категория"
+                color="orange"
                 hide-details
               >
               </v-text-field>
@@ -48,32 +82,11 @@
           </v-col>
           
           <v-col>
-            <v-sheet  elevation="1" class="ma-7">
-              <v-text-field
-                color="info"
-                placeholder="Место"
-                hide-details
-              >
-              </v-text-field>
-            </v-sheet>
-          </v-col>
-
-          <v-col>
-            <v-sheet  elevation="1" class="ma-7">
-              <v-text-field
-                color="info"
-                placeholder="Категория"
-                hide-details
-              >
-              </v-text-field>
-            </v-sheet>
-          </v-col>
-
-          <v-col>
-            <v-sheet  elevation="1" class="ma-7">
+            <v-sheet  elevation="1" class="ma-10 pa-3">
               <v-text-field
                 color="info"
                 placeholder="Искать "
+                hide-details
               >
               </v-text-field>
             </v-sheet>
