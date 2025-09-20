@@ -32,6 +32,57 @@
     </v-container>
 
     <v-container>
+      <v-sheet
+        color="rgba(999, 999, 999, 0.7)"
+      >
+        <v-row >
+          <v-col>
+            <v-sheet  elevation="1" class="ma-7">
+              <v-text-field
+                color="info"
+                placeholder="what "
+                hide-details
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+          
+          <v-col>
+            <v-sheet  elevation="1" class="ma-7">
+              <v-text-field
+                color="info"
+                placeholder="Место"
+                hide-details
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+
+          <v-col>
+            <v-sheet  elevation="1" class="ma-7">
+              <v-text-field
+                color="info"
+                placeholder="Категория"
+                hide-details
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+
+          <v-col>
+            <v-sheet  elevation="1" class="ma-7">
+              <v-text-field
+                color="info"
+                placeholder="Искать "
+              >
+              </v-text-field>
+            </v-sheet>
+          </v-col>
+        </v-row>
+      </v-sheet>
+    </v-container>
+
+    <v-container>
       <v-row
         class="mb-6"
         no-gutters
