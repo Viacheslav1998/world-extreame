@@ -6,7 +6,7 @@
         rounded="md"
         class="d-flex align-center px-4 py-2 mt-4"
       >
-        <span class="text-h6 font-weight-bold">World-<span class="text-red">Extreame</span>.com</span>
+        <span class="text-h6 font-weight-bold">World-<span class="text-red-darken-4">Extreame</span>.com</span>
         <v-spacer />
         <v-btn variant="text">Главная</v-btn>
         <v-btn variant="text">Статистика</v-btn>
@@ -40,7 +40,7 @@
             <v-sheet 
               color="indigo"
               elevation="1"
-              class="ma-10 pa-3"
+              class="my-10 mx-2 pa-3"
             >
               <v-text-field
                 label="Что надо искать?"
@@ -55,7 +55,7 @@
             <v-sheet 
               color="indigo"
               elevation="1"
-              class="ma-10 pa-3"
+              class="my-10 mx-2 pa-3"
             >
               <v-text-field
                 label="Место"
@@ -70,7 +70,7 @@
             <v-sheet 
               color="indigo"
               elevation="1"
-              class="ma-10 pa-3"
+              class="my-10 mx-2 pa-3"
             >
               <v-text-field
                 label="Категория"
@@ -81,14 +81,11 @@
             </v-sheet>
           </v-col>
           
-          <v-col>
-            <v-sheet  elevation="1" class="ma-10 pa-3">
-              <v-text-field
-                color="info"
-                placeholder="Искать "
-                hide-details
-              >
-              </v-text-field>
+          <v-col cols="auto">
+            <v-sheet elevation="1" class="my-10 mx-2 pa-3" color="blue-grey">
+              <v-btn size="x-large" color="red-darken-4">
+                Найти ...
+              </v-btn>
             </v-sheet>
           </v-col>
         </v-row>
