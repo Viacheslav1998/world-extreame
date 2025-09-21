@@ -30,7 +30,6 @@
         </v-col>
       </v-row>
     </v-container>
-
     <v-container>
       <v-sheet
         color="rgba(999, 999, 999, 0.7)"
@@ -50,7 +49,6 @@
               </v-text-field>
             </v-sheet>
           </v-col>
-
            <v-col color="indigo">
             <v-sheet 
               color="indigo"
@@ -65,7 +63,6 @@
               </v-text-field>
             </v-sheet>
           </v-col>
-
            <v-col color="indigo">
             <v-sheet 
               color="indigo"
@@ -80,7 +77,6 @@
               </v-text-field>
             </v-sheet>
           </v-col>
-          
           <v-col cols="auto">
             <v-sheet elevation="1" class="my-10 mx-2 pa-3" color="blue-grey">
               <v-btn size="x-large" color="red-darken-4" style="margin-top: 3.5px;">
@@ -94,7 +90,7 @@
 
     <v-container>
       <v-row
-        class="mb-6"
+        class="mb-6 bg-indigo"
         no-gutters
       >
         <v-col>
