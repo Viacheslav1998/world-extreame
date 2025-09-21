@@ -1,6 +1,19 @@
 <template>
-	<h1>Home</h1>
-	<p>welcome to the main page</p>
+	<!-- pheraps need another windows -->
+	<v-container>
+		<v-row no-gutters class="bg-red">
+      <v-col cols="7">
+        <v-sheet class="pa-2 ma-2">
+          .v-col-2
+        </v-sheet>
+      </v-col>
+      <v-col>
+        <v-sheet class="pa-2 ma-2">
+          .v-col-auto
+        </v-sheet>
+      </v-col>
+    </v-row>
+	</v-container>
 </template>
 
 <script setup lang="ts">
