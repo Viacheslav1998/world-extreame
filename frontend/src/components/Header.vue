@@ -83,7 +83,7 @@
           
           <v-col cols="auto">
             <v-sheet elevation="1" class="my-10 mx-2 pa-3" color="blue-grey">
-              <v-btn size="x-large" color="red-darken-4">
+              <v-btn size="x-large" color="red-darken-4" style="margin-top: 3.5px;">
                 Найти ...
               </v-btn>
             </v-sheet>
