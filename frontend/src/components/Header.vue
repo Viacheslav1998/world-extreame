@@ -87,7 +87,6 @@
         </v-row>
       </v-sheet>
     </v-container>
-
     <v-container>
       <v-row
         class="mb-6 bg-indigo"
@@ -98,31 +97,26 @@
             col-auto
           </v-sheet>
         </v-col>
-
         <v-col>
           <v-sheet class="pa-2 ma-2">
             col-auto
           </v-sheet>
         </v-col>
-
         <v-col>
           <v-sheet class="pa-2 ma-2">
             col-auto
           </v-sheet>
         </v-col>
-
         <v-col>
           <v-sheet class="pa-2 ma-2">
             col-auto
           </v-sheet>
         </v-col>
-
         <v-col>
           <v-sheet class="pa-2 ma-2">
             col-auto
           </v-sheet>
         </v-col>
-
       </v-row>
     </v-container>
   </div>
