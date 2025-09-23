@@ -3,13 +3,9 @@
 	<v-container>
 		<v-row no-gutters class="bg-blue-grey-lighten-5">
       <v-col cols="7">
-        <v-row>
-          <v-col>
-            <v-sheet class="pa-2 ma-2 rounded">
-              <h2 class="text-blue-grey">Быстрый магазин</h2>
-            </v-sheet>
-          </v-col>
-        </v-row>
+        <v-sheet class="pa-2 ma-2 rounded">
+          <h2 class="text-blue-grey">Быстрый магазин</h2>
+        </v-sheet>
         <v-row no-gutters>
           <v-col>
             <v-sheet class="pa-2 ma-2 rounded m-forest">
@@ -33,24 +29,14 @@
         <v-row>
           <div class="spacer pa-1 ma-1"></div>
         </v-row>
-        <v-row no-gutters>
-          <v-col>
-            <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
-              <h3>Последние новости:</h3>
-            </v-sheet>
-          </v-col>
-        </v-row>
+        <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
+          <h3>Последние новости:</h3>
+        </v-sheet>
       </v-col>
-
       <v-col>
-        <v-row no-gutters>
-          <v-col>
-            <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
-              <h4>Случайные комментарии:</h4>
-            </v-sheet>
-          </v-col>
-        </v-row>
-        
+        <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
+          <h4>Случайные комментарии:</h4>
+        </v-sheet>
       </v-col>
     </v-row>
 	</v-container>
