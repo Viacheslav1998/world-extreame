@@ -89,14 +89,26 @@
     </v-container>
     <v-container>
       <v-row
-        class="mb-6 bg-indigo"
+        class="bg-indigo-lighten-4 rounded"
         no-gutters
       >
-        <v-col>
-          <v-sheet class="pa-2 ma-2">
-            col-auto
+        <v-col class="p-2 m-5">
+          <v-sheet class="pa-2 ma-2 bg-white rounded">
+            <div class="text-center">
+              <img src="/icons/bike.png" alt="ico">
+              <div class="pb-2">
+                <p>Все новости</p>
+              </div>
+              <v-chip 
+                color="red"
+                variant="flat"
+              >
+                3,045
+              </v-chip>
+            </div>
           </v-sheet>
         </v-col>
+
         <v-col>
           <v-sheet class="pa-2 ma-2">
             col-auto
@@ -120,6 +132,8 @@
       </v-row>
     </v-container>
   </div>
+  <br>
+  <br>
 </template>
 
 <style scoped>
