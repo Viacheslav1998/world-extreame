@@ -16,7 +16,7 @@
     <v-container class="text-center">
       <v-row 
         no-gutters
-        style="height: 300px;"
+        style="height: 200px;"
       >
         <v-col align-self="center" style="background-color: rgba(999, 999, 999, 0.7);">
           <v-sheet 
@@ -87,9 +87,10 @@
         </v-row>
       </v-sheet>
     </v-container>
+    <br>
     <v-container>
       <v-row
-        class="bg-indigo-lighten-4 rounded"
+        class="bg-indigo-lighten-5 rounded"
         no-gutters
       >
         <v-col class="p-2 m-5">
@@ -108,32 +109,74 @@
             </div>
           </v-sheet>
         </v-col>
-
-        <v-col>
-          <v-sheet class="pa-2 ma-2">
-            col-auto
+         <v-col class="p-2 m-5">
+          <v-sheet class="pa-2 ma-2 bg-white rounded">
+            <div class="text-center">
+              <img src="/icons/frontal-truck.png" alt="ico">
+              <div class="pb-2">
+                <p>Всего поставок</p>
+              </div>
+              <v-chip 
+                color="red"
+                variant="flat"
+              >
+                352
+              </v-chip>
+            </div>
           </v-sheet>
         </v-col>
-        <v-col>
-          <v-sheet class="pa-2 ma-2">
-            col-auto
+         <v-col class="p-2 m-5">
+          <v-sheet class="pa-2 ma-2 bg-white rounded">
+            <div class="text-center">
+              <img src="/icons/mountain.png" alt="ico">
+              <div class="pb-2">
+                <p>места</p>
+              </div>
+              <v-chip 
+                color="red"
+                variant="flat"
+              >
+                76
+              </v-chip>
+            </div>
           </v-sheet>
         </v-col>
-        <v-col>
-          <v-sheet class="pa-2 ma-2">
-            col-auto
+         <v-col class="p-2 m-5">
+          <v-sheet class="pa-2 ma-2 bg-white rounded">
+            <div class="text-center">
+              <img src="/icons/parking.png" alt="ico">
+              <div class="pb-2">
+                <p>Rally-Cross</p>
+              </div>
+              <v-chip 
+                color="red"
+                variant="flat"
+              >
+                736
+              </v-chip>
+            </div>
           </v-sheet>
         </v-col>
-        <v-col>
-          <v-sheet class="pa-2 ma-2">
-            col-auto
+         <v-col class="p-2 m-5">
+          <v-sheet class="pa-2 ma-2 bg-white rounded">
+            <div class="text-center">
+              <img src="/icons/thunderstorm.png" alt="ico">
+              <div class="pb-2">
+                <p>Условия</p>
+              </div>
+              <v-chip 
+                color="red"
+                variant="flat"
+              >
+                276
+              </v-chip>
+            </div>
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
   </div>
-  <br>
-  <br>
+ 
 </template>
 
 <style scoped>
