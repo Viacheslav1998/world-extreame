@@ -14,17 +14,19 @@
           <v-col>
             <v-sheet class="pa-2 ma-2 rounded m-forest">
               <h4>магазин</h4>
-              <p>тут хороший стаф</p>
+              <p>Туристический набор</p>
             </v-sheet>
           </v-col>
           <v-col>
             <v-sheet class="pa-2 ma-2 rounded m-bycucle">
-              asd
+              <h4>Магазин</h4>
+              <p>Для велосипедов</p>
             </v-sheet>
           </v-col>
           <v-col>
             <v-sheet class="pa-2 ma-2 rounded m-cross">
-              asd
+              <h4>Магазин</h4>
+              <p>Детали, двигателя ...</p>
             </v-sheet>
           </v-col>
         </v-row>
@@ -61,7 +63,17 @@
   height: 100px;
   background-size: cover;
   background-position: center;
+  transition: all 0.4s ease;
 }
+
+.m-bycucle:hover, .m-forest:hover, .m-cross:hover {
+  color: white;
+  border-bottom: 2px solid white;
+  cursor: pointer;
+  background-image: url('/main/pex.jpg');
+  box-shadow: 0 1px 20px rgba(46, 46, 46, 0.633);
+} 
+
 .m-forest {
   background-image: url('/main/f.jpg');
 }
