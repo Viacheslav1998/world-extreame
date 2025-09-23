@@ -1,14 +1,35 @@
 <template>
 	<!-- pheraps need another windows -->
 	<v-container>
-		<v-row no-gutters class="bg-red">
+		<v-row no-gutters class="bg-deep-purple-lighten-4">
       <v-col cols="7">
-        <v-sheet class="pa-2 ma-2">
-          .v-col-2
-          контент новости
-          можно магаз замутить
-        </v-sheet>
+        <v-row>
+          <v-col>
+            <v-sheet class="pa-2 ma-2 rounded">
+              <h2>Быстрый магазин</h2>
+            </v-sheet>
+          </v-col>
+        </v-row>
+        <v-row no-gutters>
+          <v-col>
+            <v-sheet class="pa-2 ma-2 rounded">
+              asd
+            </v-sheet>
+          </v-col>
+          <v-col>
+            <v-sheet class="pa-2 ma-2 rounded">
+              asd
+            </v-sheet>
+          </v-col>
+          <v-col>
+            <v-sheet class="pa-2 ma-2 rounded">
+              asd
+            </v-sheet>
+          </v-col>
+        </v-row>
       </v-col>
+
+
       <v-col>
         <v-sheet class="pa-2 ma-2">
           .v-col-auto
