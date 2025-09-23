@@ -90,7 +90,7 @@
     <br>
     <v-container>
       <v-row
-        class="bg-indigo-lighten-5 rounded"
+        class="rounded"
         no-gutters
       >
         <v-col class="p-2 m-5">
