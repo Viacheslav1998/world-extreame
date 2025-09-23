@@ -30,7 +30,6 @@
             </v-sheet>
           </v-col>
         </v-row>
-
         <v-row>
           <div class="spacer pa-1 ma-1"></div>
         </v-row>
@@ -44,11 +43,14 @@
       </v-col>
 
       <v-col>
-        <v-sheet class="pa-2 ma-2 rounded">
-          .v-col-auto
-          тут какие то быстрые решения
-          рекламки баннеры
-        </v-sheet>
+        <v-row no-gutters>
+          <v-col>
+            <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
+              <h4>Случайные комментарии:</h4>
+            </v-sheet>
+          </v-col>
+        </v-row>
+        
       </v-col>
     </v-row>
 	</v-container>
