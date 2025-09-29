@@ -26,12 +26,29 @@
             </v-sheet>
           </v-col>
         </v-row>
-        <v-row>
-          <div class="spacer pa-1 ma-1"></div>
-        </v-row>
         <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
-          <h3>Последние новости:</h3>
+          <h4>Последние новости:</h4>
         </v-sheet>
+        <v-row no-gutters>
+          <v-card
+            class=" pa-2 ma-2"
+            prepend-icon="$vuetify"
+            subtitle="the #1 vue UI Library"
+            flat
+          >
+            <template v-slot:title>
+              <span class="font-weight-black">Welcome to vuetify</span>
+            </template>
+
+            <v-card-text class="bg-surface-light pt-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga amet dolores et laboriosam repellendus facilis quis in voluptatibus ex rem ea nesciunt nemo ipsa quae recusandae, repellat atque. Error, distinctio!
+              Recusandae, blanditiis? Magnam veritatis iste distinctio fugit, a, earum quam atque molestias obcaecati eius voluptas ipsum minus. Nemo hic excepturi cum obcaecati vel exercitationem, ea facilis, possimus praesentium reprehenderit soluta.
+              Praesentium veritatis illo quos cum, fuga molestiae. Tenetur corrupti eveniet molestias magnam sit, soluta esse dolorem porro quos! Quasi vel nisi repellat, ut architecto quam alias eligendi sunt qui illum!
+              Dolor laborum a harum enim fugit dolorem tempore qui similique corrupti in, saepe minima ducimus consequuntur eveniet quod, aperiam sed iusto, omnis quos nisi fugiat dicta totam. Et, omnis voluptas?
+              Labore dolores aspernatur ullam odit error eaque soluta qui, praesentium quas quos harum, nisi in eveniet minima. Asperiores mollitia repellat cumque maxime tempore magnam impedit? Sint temporibus ipsa quas iure!
+            </v-card-text>
+          </v-card>
+        </v-row>
       </v-col>
       <!-- right side -->
       <v-col>
