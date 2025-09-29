@@ -33,10 +33,25 @@
           <h3>Последние новости:</h3>
         </v-sheet>
       </v-col>
+      <!-- right side -->
       <v-col>
         <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
           <h4>Случайные комментарии:</h4>
         </v-sheet>
+        <v-row no-gutters>
+          <v-sheet class="pa-2 ma-2 rounded">
+            <v-list lines="one" class="">
+              <v-list-item 
+                class="bg-indigo ma-2 py-4 rounded"
+                v-for="n in 8"
+                :key="n"
+                :title="'тема: ' + n"
+                subtitle="какой то комментарий пользователя на последний пост с горнолыжки"
+              >
+              </v-list-item>
+            </v-list>
+          </v-sheet>
+        </v-row>
       </v-col>
     </v-row>
 	</v-container>
