@@ -94,7 +94,7 @@
         no-gutters
       >
         <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 bg-white rounded">
+          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
             <div class="text-center">
               <img src="/icons/bike.png" alt="ico">
               <div class="pb-2">
@@ -110,7 +110,7 @@
           </v-sheet>
         </v-col>
          <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 bg-white rounded">
+          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
             <div class="text-center">
               <img src="/icons/frontal-truck.png" alt="ico">
               <div class="pb-2">
@@ -126,7 +126,7 @@
           </v-sheet>
         </v-col>
          <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 bg-white rounded">
+          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
             <div class="text-center">
               <img src="/icons/mountain.png" alt="ico">
               <div class="pb-2">
@@ -142,7 +142,7 @@
           </v-sheet>
         </v-col>
          <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 bg-white rounded">
+          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
             <div class="text-center">
               <img src="/icons/parking.png" alt="ico">
               <div class="pb-2">
@@ -158,7 +158,7 @@
           </v-sheet>
         </v-col>
          <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 bg-white rounded">
+          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
             <div class="text-center">
               <img src="/icons/thunderstorm.png" alt="ico">
               <div class="pb-2">
@@ -185,5 +185,9 @@
   background-image: url('/main/mountain.jpg');
   background-position: 0 -70px;
   background-size: cover;
+}
+
+.custom-bg-rbga-w {
+  background-color: rgba(238, 238, 238, 0.856);
 }
 </style>
