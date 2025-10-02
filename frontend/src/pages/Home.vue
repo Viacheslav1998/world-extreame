@@ -40,21 +40,21 @@
                   {{ post.title }}
                 </v-card-title>
 
-                <img 
+                <v-img 
                   :src="'/main/' + post.image"
-                  height="200px"
+                  height="200"
                   cover
                   alt="alter"
-                ></img>
+                ></v-img>
 
                 <v-card-text>
                   {{ post.text }}
                 </v-card-text>
 
-                <v-card-actions>
+                <v-card-actions class="justify-end">
                   <v-btn
-                    color="primary"
-                    variant="tonal"
+                    color="red-accent-4"
+                    variant="outlined"
                     @click="goToPost(post.id)"
                   >
                     перейти
@@ -72,7 +72,7 @@
         </v-sheet>
         <v-row no-gutters>
           <v-sheet class="pa-2 ma-2 rounded">
-            <v-list lines="one" class="">
+            <v-list lines="one">
               <v-list-item 
                 class="bg-indigo ma-2 py-4 rounded"
                 v-for="n in 8"
