@@ -64,4 +64,4 @@ npm install
 
 иногда надо обновить node.js
 
-![World-Extreame.com](./wx.png)
+![World-Extreame.com](hmx.png)
