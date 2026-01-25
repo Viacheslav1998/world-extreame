@@ -4,9 +4,22 @@ import vue from '@vitejs/plugin-vue'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  proxy: {
-    '/api':'http://localhost:8081'
+  server: {
+    host: '0.0.0.0',
+    port: 5173,      
+    strictPort: true,
+    hmr: {
+      clientPort: 5173, 
+    },
+    watch: {
+      usePolling: true,
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8081',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   }
 })
-
-
