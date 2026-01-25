@@ -23,7 +23,7 @@ cd world-extreame
 docker-compose up -d --build
 ===
 
-### 3. остановка контейнеров
+### 3. остановка контейнеров [малоли нужно]
 docker-compose down
 ===
 
@@ -31,7 +31,7 @@ docker-compose down
 ===
 docker-compose up -d
 
-### 5. Если работать через докер / [wsl]
+### 5. Linux / [wsl]
 === 
 
 [0] docker exec -it laravel_app bash
@@ -49,4 +49,7 @@ php artisan migrate
 #### Установка зависимостей на фроненде
 [4]
 frontend npm install
-[wsl/linux не забуть установить sudo apt update и sudo apt install nodejs npm -y без пакетов не заработет npm]
+[wsl/linux не забуть выполнить
+ sudo apt update 
+ sudo aptinstall nodejs npm -y
+ без пакетов не заработет npm]
