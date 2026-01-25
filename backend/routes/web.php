@@ -2,6 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/test', function () {
-//     return response()->json(['status' => 'ok', 'framework' => 'laravel']);
-// });
+Route::get('/test', function () {
+    return response()->json(['status' => 'ok', 'framework' => 'laravel']);
+});

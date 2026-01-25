@@ -40,6 +40,8 @@ docker-compose up -d
 [1]sudo chown -R $USER:$USER . 
 [1.1] cd ~/projects/world-extreame/backend
 sudo chmod -R 777 storage bootstrap/cache // ради простого тестового проекта. для боевого так делать не надо.
+[1.2] [backend] sudo chmod -R 777 database 
+[1.3] docker compose exec app php artisan config:clear
 
 #### выполнение команд без которых не стартанет проект
 [3]
