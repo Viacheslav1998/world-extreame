@@ -38,6 +38,8 @@ docker-compose up -d
 
 #### поскольку это линукс нужно дать возможность писать и сохранять файлы
 [1]sudo chown -R $USER:$USER . 
+[1.1] cd ~/projects/world-extreame/backend
+sudo chmod -R 777 storage bootstrap/cache // ради простого тестового проекта. для боевого так делать не надо.
 
 #### выполнение команд без которых не стартанет проект
 [3]
@@ -51,5 +53,5 @@ php artisan migrate
 frontend npm install
 [wsl/linux не забуть выполнить
  sudo apt update 
- sudo aptinstall nodejs npm -y
+ sudo apt install nodejs npm -y
  без пакетов не заработет npm]
