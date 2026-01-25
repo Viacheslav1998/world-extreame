@@ -62,4 +62,4 @@ npm install
  npm run dev 
  ]
 
-иногда надо обновить node-v 
+иногда надо обновить node.js

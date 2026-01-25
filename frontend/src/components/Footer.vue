@@ -12,16 +12,17 @@
 
     <v-divider class="my-2" thickness="2" width="50"></v-divider>
 
-    <div class="text-caption font-weight-regular opacity-60">
-      Зачем трогать если все и так отлично работает ?
-			вот футер заготованный vuetify!
-			<hr color="white"></hr>
+    <div class="text-caption font-weight-regular opacity-90">
+     Международный чемпионат по разным эсктримальным дисциплинам
+			<br>
+       новости - сообщество - снаряжение
     </div>
 
+    <v-divider class="my-2" thickness="2" width="50"></v-divider>
     <v-divider></v-divider>
-
     <div>
-      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+       {{ new Date().getFullYear() }} <br>
+      <span class="text-h1 font-weight-bold">World-<span class="text-red-darken-4">Extreame</span>.com</span>
     </div>
   </v-footer>
 </template>
