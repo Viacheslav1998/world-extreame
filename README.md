@@ -31,14 +31,19 @@ docker-compose down
 ===
 docker-compose up -d
 
-### 5. Если работать через докер
+### 5. Если работать через докер / [wsl]
 === 
 
-#### Выполнение миграций бд - (важно ведь без ник проект не стартанет)
-docker-compose exec backend php artisan migrate
+[0] docker exec -it laravel_app bash
+
+#### Выполнение миграций бд - (важно ведь без них проект не стартанет)
+php artisan migrate
 
 #### Установка зависимостей на фроненде
-docker-compose exe frontend npm install
+[1]
+frontend npm install
+[wsl/linux не забуть установить sudo apt update и sudo apt install nodejs npm -y без пакетов не заработет npm]
 
-Альтернатива - используй cli и выполни в директоии frontend [npm i]
-Также нужно установить зависимости в директории backend - [composer install] 
+#### Установка зависимостей на бэкенде 
+[2]
+composer install
