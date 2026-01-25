@@ -37,19 +37,16 @@ docker-compose up -d
 [0] docker exec -it laravel_app bash
 
 #### поскольку это линукс нужно дать возможность писать и сохранять файлы
-sudo chown -R $USER:$USER . 
+[1]sudo chown -R $USER:$USER . 
 
 #### выполнение команд без которых не стартанет проект
+[3]
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
 
 #### Установка зависимостей на фроненде
-[1]
+[4]
 frontend npm install
 [wsl/linux не забуть установить sudo apt update и sudo apt install nodejs npm -y без пакетов не заработет npm]
-
-#### Установка зависимостей на бэкенде 
-[2]
-
