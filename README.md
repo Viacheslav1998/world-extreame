@@ -33,7 +33,7 @@ php artisan config:clear
 # Даем права текущему пользователю на всю папку проекта
 sudo chown -R $USER:$USER .
 
-# Проваливаемся в backend (если структура папок это предполагает)
+# переходим в директорию
 cd backend 
 
 # Разрешаем запись в хранилище, кеш и базу данных (необходимо для database)
@@ -41,8 +41,8 @@ sudo chmod -R 775 storage bootstrap/cache database
 
 ### 4 Настройка Frontend
 проверь свежий ли node.js (должна быть 20.x.x) если нет обнови.
-node -v
 cd backend 
+node -v
 npm install
 npm run dev
 ```
