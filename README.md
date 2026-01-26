@@ -9,58 +9,48 @@
 
 ---
 
-## 🚀 Старт проекта
+## 🚀 Старт
 
-### 1. Клонирование репозитория
 ```bash
-git clone git@github.com:Viacheslav1998/world-extreame.git
-or
 git clone https://github.com/Viacheslav1998/world-extreame.git
-
 cd world-extreame
 
-### 2. сборка
+### 2. Сборка и запуск в фоновом режиме
 docker-compose up -d --build
 ===
 
-### 3. остановка контейнеров [малоли нужно]
-docker-compose down
-===
+### 3. Настройка Backend (Laravel)
+# Вход в контейнер 
+docker exec -it laravel_app bash
 
-### 4. запуск контейнеров
-===
-docker-compose up -d
-
-### 5. Linux / [wsl]
-=== 
-
-[0] docker exec -it laravel_app bash
-
-#### поскольку это линукс нужно дать возможность писать и сохранять файлы
-[1]sudo chown -R $USER:$USER . 
-[1.1] cd ~/projects/world-extreame/backend
-sudo chmod -R 777 storage bootstrap/cache // ради простого тестового проекта. для боевого так делать не надо.
-[1.2] [backend] sudo chmod -R 777 database 
-[1.3] docker compose exec app php artisan config:clear
-
-#### выполнение команд без которых не стартанет проект
-[2]
+# Внутри контейнера:
 composer install
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
+php artisan config:clear
 
-#### Установка зависимостей на фроненде
-[3]
-cd /frontend 
+# Даем права текущему пользователю на всю папку проекта
+sudo chown -R $USER:$USER .
+
+# Проваливаемся в backend (если структура папок это предполагает)
+cd backend 
+
+# Разрешаем запись в хранилище, кеш и базу данных (необходимо для database)
+sudo chmod -R 775 storage bootstrap/cache database
+
+### 4 Настройка Frontend
+проверь свежий ли node.js (должна быть 20.x.x) если нет обнови.
+node -v
+cd backend 
 npm install
-[wsl/linux не забуть выполнить
- sudo apt update 
- sudo apt install nodejs npm -y
- без пакетов не заработет npm
- и запускай vite
- npm run dev 
- ]
+npm run dev
+```
 
-иногда надо обновить node.js
+### Полезные команды
+Остановка проекта: docker-compose down
+Запуск без пересборки: docker-compose up -d
+Очистка кеша Laravel: docker exec laravel_app php artisan config:clear
+
+
 ![World-Extreame.com](https://github.com/Viacheslav1998/world-extreame/raw/main/hmx.png)
