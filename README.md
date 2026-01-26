@@ -48,15 +48,9 @@ npm run dev
 ```
 
 ### Полезные команды
-Остановка проекта: docker-compose down
-Запуск без пересборки: docker-compose up -d
-Очистка кеша Laravel: docker exec laravel_app php artisan config:clear
+# Остановка проекта: docker-compose down
+## Запуск без пересборки: docker-compose up -d
+## Очистка кеша Laravel: docker exec laravel_app php artisan config:clear
 
-
-<<<<<<< HEAD
-=======
-иногда надо обновить node.js
-```
->>>>>>> a413a7a532d657ed4645054a1064270430661bbf
 ![World-Extreame.com](https://github.com/Viacheslav1998/world-extreame/raw/main/hmx.png)
 
