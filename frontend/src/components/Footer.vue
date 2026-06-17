@@ -22,7 +22,7 @@
     <v-divider></v-divider>
     <div>
        {{ new Date().getFullYear() }} <br>
-      <span class="text-h1 font-weight-bold">World-<span class="text-red-darken-4">Extreame</span>.com</span>
+      <span class="text-h1 font-weight-bold">World-<span class="text-red-accent-1">Extreame</span>.com</span>
     </div>
   </v-footer>
 </template>
