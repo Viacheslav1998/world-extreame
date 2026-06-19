@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Home',
     component: Home
   },
-  // single{id}/{name}
+  // single{id}/{name} / items{}/ cats{}/ product{name}/{id}
   {
     path: '/single',
     name: 'single',
