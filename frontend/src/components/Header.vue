@@ -20,11 +20,11 @@
       >
         <v-col align-self="center" style="background-color: rgba(999, 999, 999, 0.7);">
           <v-sheet 
-            color="transparent"
+            color="white"
           >
-            <h1 class="text-h3 font-weight-bold mt-4" style="color:rgba(000, 000, 000, 0.8)">Добро пожаловать</h1>
+            <h1 class="text-h5 font-weight-bold mt-4" style="color:rgba(000, 000, 000, 0.8)">Многофункциональный информационный портал</h1>
             <p class="text-h6 text-black">
-              все новые экстримальные новости здесь
+               | магазин | новости | нужные вещи | запчасти | мерч |
             </p>
           </v-sheet>
         </v-col>
