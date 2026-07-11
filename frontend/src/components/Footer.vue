@@ -23,35 +23,89 @@
       <div 
         class="d-flex justify-space-between mb-6"
       >
-        <div v-for="n in 3" :key="n">
-          <div class="">
-            <div>
-              <h4>партнеры</h4>
-              <li>asd</li>
-              <li>ddasd</li>
-              <li>fqwsa</li>
-              <li>fafafaf</li>
-            </div>
-          </div>
+        <div
+          v-for="column in MenuColumns"
+          :key="column.title"
+          class="column"
+        >
+           <h4>{{ column.title }}</h4>
+           <ul class="custom-list-none custom-list">
+              <li
+                v-for="item in column.items"
+                :item="item"
+              >
+                <a href="#" class="custom-line-menu custom-line-menu">{{ item }}</a>
+              </li>
+           </ul>
         </div>
       </div>
     </v-container>
+    <v-divider thickness="2" width="50"></v-divider>
     <div>
-       {{ new Date().getFullYear() }}. <span>все права сохранены</span><br>
+       <span class="text-red-accent-1 font-weight-bold">{{ new Date().getFullYear() }}. </span><span>Все права сохранены.</span><br><br>
       <span class="text-h1 font-weight-bold">World-<span class="text-red-accent-1">Extreame</span>.com</span>
     </div>
   </v-footer>
 </template>
+
+<style>
+.custom-list-none {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.custom-list li {
+  text-align: left;
+}
+
+.custom-line-menu {
+  font-size: 13px;
+  color: wheat;
+  text-decoration: none;
+}
+
+.custom-line-menu:hover {
+  color: rgb(215, 233, 52);
+  font-weight: bold;
+}
+
+
+</style>
+
 <script setup lang="ts">
   interface icon {
       name: string
   }
-  
+
+  interface MenuColumn {
+    title: string, 
+    items: string[]
+  }
+
   const icons: icon[] = [
     {  name: 'mdi-facebook' },
     {  name: 'mdi-twitter' },
     {  name: 'mdi-linkedin' },
     {  name: 'mdi-instagram' }
+  ]
+
+  const MenuColumns: MenuColumn[] = [
+    {
+      title: 'Партнеры',
+      items: ['KSW7', 'WebStrom', 'Kikdown', 'GameGround']
+    },
+    {
+      title: 'Компания',
+      items: ['О нас', 'Вакансии', 'Контакты'] 
+    },
+    {
+      title: 'Документы',
+      items: ['Политика', 'Оферта']
+    },
+    {
+      title: 'Разработчики',
+      items: ['SilentStrom', 'Ak4ella']
+    }
   ]
 
 </script>
