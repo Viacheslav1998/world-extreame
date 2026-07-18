@@ -3,12 +3,19 @@ import type { RouteRecordRaw } from 'vue-router'
 
 import Home from "../pages/Home.vue"
 import Single from "../pages/Single.vue"
+import Main from "../pages/layouts/Main.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: Main,
+    meta: { hideLayout: true }
   },
   // single{id}/{name} / items{}/ cats{}/ product{name}/{id}
   {

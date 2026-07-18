@@ -1,10 +1,12 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-if="!$route.meta.hideLayout" />
+
     <main class="content">
       <router-view />
     </main>
-    <Footer />
+    
+    <Footer v-if="!$route.meta.hideLayout" />
   </div>
 </template>
 

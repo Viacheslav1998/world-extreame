@@ -17,11 +17,13 @@
      Международный чемпионат по разным экстремальным дисциплинам
 			<br>
        новости - сообщество - снаряжение - партнеры
+       <br>
+        Казахстан - Греция - Италия 
     </div>
     <v-divider class="my-2" thickness="2" width="50"></v-divider>
     <v-container>
       <div 
-        class="d-flex justify-space-between mb-6"
+        class="d-flex justify-space-around mb-6"
       >
         <div
           v-for="column in MenuColumns"
@@ -99,12 +101,16 @@
       items: ['О нас', 'Вакансии', 'Контакты'] 
     },
     {
-      title: 'Документы',
-      items: ['Политика', 'Оферта']
-    },
-    {
       title: 'Разработчики',
       items: ['SilentStrom', 'Ak4ella']
+    },
+     {
+      title: 'Магазины',
+      items: ['Bclcross', 'TGready', 'Adventures']
+    },
+    {
+      title: 'Документы',
+      items: ['Политика', 'Оферта']
     }
   ]
 
