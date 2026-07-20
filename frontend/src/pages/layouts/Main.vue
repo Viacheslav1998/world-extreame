@@ -8,5 +8,20 @@
   </v-app>
 </template>
 
+<style scoped>
+</style>
+
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue';
+
+onUnmounted(() => {
+  document.documentElement.style.overflow = '' // Safari
+  document.body.style.overflow = '';
+})
+
+onMounted(() => {
+  document.documentElement.style.overflow = 'hidden'
+  document.body.style.overflow = 'hidden';
+})
+
 </script>
