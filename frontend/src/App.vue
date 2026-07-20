@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
+  <v-app id="app">
     <Header v-if="!$route.meta.hideLayout" />
 
-    <main class="content">
+    <v-main class="content">
       <router-view />
-    </main>
+    </v-main>
     
     <Footer v-if="!$route.meta.hideLayout" />
-  </div>
+  
+  </v-app>
 </template>
 
 <script setup lang="ts">
