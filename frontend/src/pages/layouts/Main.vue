@@ -1,8 +1,11 @@
 <template>
   <!-- static SFC | don`t dynamic theme! -->
   <v-app>
-    <v-main class="bg-purple-lighten-2 d-flex align-center">
-      <v-container class="bg-surface-variant md-6">
+    <v-main class="main-bg d-flex align-center ">
+      <v-container class="bg-glass-white md-6">
+        <div class="text-button">
+          Навигация по сайту.
+        </div>
         <v-row justify="space-around">
           <v-col align-self="start">
             <v-row>
@@ -52,7 +55,7 @@
             </v-row>   
           </v-col>
 
-               <v-col align-self="start">
+          <v-col align-self="start">
             <v-row>
               <v-col class="d-flex flex-column ga-2">
                 <v-card 
@@ -100,7 +103,7 @@
             </v-row>   
           </v-col>
 
-               <v-col align-self="start">
+          <v-col align-self="start">
             <v-row>
               <v-col class="d-flex flex-column ga-2">
                 <v-card 
@@ -161,7 +164,17 @@
   </v-app>
 </template>
 
-<style scoped>
+<style scoped> 
+.main-bg {
+  background-image: url('../../../public/main/pex.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.bg-glass-white {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px);
+}
 </style>
 
 <script setup lang="ts">
