@@ -18,7 +18,8 @@
                 <v-card
                   v-for="card in column"
                   :key="card.id"
-                  @click="go(card.link)"
+                  :disabled="card.disabled"
+                  :to="card.link"
                   class="h-100 d-flex flex-column mb-5"
                   elevation="2"
                 >
@@ -55,7 +56,6 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
-import { GoToSymbol } from 'vuetify/lib/composables/goto';
 
 interface OptionsCard {
   id: number;
@@ -63,23 +63,26 @@ interface OptionsCard {
   title: string;
   image: string;
   color: string;
+  disabled?: boolean;
 }
 
 const optionsCards = ref<OptionsCard[][]>([
   [
     {
       id: 1,
-      link: '/news1',
+      link: '/',
       title: 'Главные новости спорта',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-deep-orange-accent-3'
+      color: 'bg-deep-orange-accent-3',
+      disabled: false
     },
     {
       id: 2,
       link: '/news1',
       title: 'Новости 2',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-blue-grey-darken-3'
+      color: 'bg-blue-grey-darken-3',
+      disabled: false
     },
   ],
   //
@@ -89,14 +92,16 @@ const optionsCards = ref<OptionsCard[][]>([
       link: '/news1',
       title: 'Новости 3',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-yellow-accent-2'
+      color: 'bg-yellow-accent-2',
+      disabled: true
     },
     { 
       id: 4,
       link: '/news1',
       title: 'Новости 4',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-green-darken-4'
+      color: 'bg-green-darken-4',
+      disabled: true
     },
   ],
   //
@@ -106,14 +111,16 @@ const optionsCards = ref<OptionsCard[][]>([
       link: '/news1',
       title: 'Новости 5',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-pink'
+      color: 'bg-pink',
+      disabled: true
     },
     {
       id: 6,
       link: '/news1',
       title: 'Новости 6',  
       image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-purple-darken-4'
+      color: 'bg-purple-darken-4',
+      disabled: true
     },
   ]
 ]);
