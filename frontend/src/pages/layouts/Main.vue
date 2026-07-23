@@ -168,11 +168,52 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 
 interface OptionsCard {
-  id: number;
+  link: string;
   title: string;
-  subscribe: string;
-  images: string;
+  image: string;
 }
+
+const optionsCards = ref<OptionsCard[][]>([
+  [
+    {
+      link: '/news1',
+      title: 'Новости 1',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+    {
+      link: '/news1',
+      title: 'Новости 2',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+  ],
+  //
+  [
+    {
+      link: '/news1',
+      title: 'Новости 3',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+    {
+      link: '/news1',
+      title: 'Новости 4',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+  ],
+  //
+  [
+    {
+      link: '/news1',
+      title: 'Новости 5',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+    {
+      link: '/news1',
+      title: 'Новости 6',  
+      image: 'https://picsum.photos/id/237/200/300'
+    },
+  ]
+]);
+
 
 const date = ref<Date | null>(null);
 
