@@ -3,7 +3,7 @@
   <v-app>
     <v-main class="d-flex align-center ">
       <v-container class="md-6">
-        <div class="text-button text-blue-grey-darken-4 font-weight-bold pb-2">
+        <div class="text-button text-grey-darken-1 font-weight-bold pb-2">
           Навигация по сайту и сервисы
         </div>
 
@@ -26,8 +26,8 @@
                     class="text-white"
                   >
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
+                    <div class="text-overline text-white">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -45,10 +45,9 @@
                       cover
                       class="text-white"
                     >
-                    <v-card-title>Магазин</v-card-title>
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-pink">
+                    <div class="text-overline text-white">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -73,8 +72,8 @@
                     class="text-white"
                   >
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-red">
+                    <div class="text-overline text-white">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -92,10 +91,9 @@
                       cover
                       class="text-white"
                     >
-                    <v-card-title>Магазин</v-card-title>
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
+                    <div class="text-overline text-white">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -120,8 +118,8 @@
                     class="text-white"
                   >
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
+                    <div class="text-overline text-white">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -139,10 +137,9 @@
                       cover
                       class="text-white"
                     >
-                    <v-card-title>Магазин</v-card-title>
                   </v-img>
-                  <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-grey-darken-2 mb-1">
+                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
+                    <div class="text-overline text-white">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -152,7 +149,7 @@
           </v-col>
           
           <v-date-picker
-            class="ma-2"
+            class="ma-2 text-grey-darken-1"
             v-model="date"
             :allowed-dates="allowedDates"
             :min="minDate"
@@ -169,6 +166,13 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
+
+interface OptionsCard {
+  id: number;
+  title: string;
+  subscribe: string;
+  images: string;
+}
 
 const date = ref<Date | null>(null);
 
