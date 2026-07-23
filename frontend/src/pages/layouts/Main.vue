@@ -6,148 +6,37 @@
         <div class="text-button text-grey-darken-1 font-weight-bold pb-2">
           Навигация по сайту и сервисы
         </div>
-
         <v-row justify="space-around">
-
-          <v-col align-self="start">
+          <v-col 
+            align-self="start"
+            v-for="(column, colIndex) in optionsCards"
+            :key="colIndex"
+          >
             <v-row>
               <v-col class="d-flex flex-column ga-2">
 
-                <v-card 
-                  link 
-                  @click="go" 
+                <v-card
+                  v-for="card in column"
+                  :key="card.id"
+                  @click="go(card.link)"
                   class="h-100 d-flex flex-column mb-5"
                   elevation="2"
                 >
                   <v-img
-                    src="https://picsum.photos/200/300?grayscale"
+                    :src="card.image"
                     height="150"
                     cover
                     class="text-white"
-                  >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
-                    <div class="text-overline text-white">
-                      Экстрим - каждый день
-                    </div>
-                  </v-card-item>
-                </v-card>
-
-                <v-card 
-                  link 
-                  @click="go" 
-                  class="h-100 d-flex flex-column"
-                  elevation="2"
-                >
-                  <v-img
-                      src="https://picsum.photos/id/237/200/300"
-                      height="150"
-                      cover
-                      class="text-white"
-                    >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-pink">
-                    <div class="text-overline text-white">
-                      Вело-мото ...
+                  ></v-img>
+                  <v-card-item :class="['flex-grow-1', card.color]">
+                    <div class="text-overline">
+                      {{ card.title }}
                     </div>
                   </v-card-item>
                 </v-card>
               </v-col>
-            </v-row>   
+            </v-row>
           </v-col>
-
-          <v-col align-self="start">
-            <v-row>
-              <v-col class="d-flex flex-column ga-2">
-                <v-card 
-                  link 
-                  @click="go" 
-                  class="h-100 d-flex flex-column mb-5"
-                  elevation="2"
-                >
-                  <v-img
-                    src="https://picsum.photos/200/300?grayscale"
-                    height="150"
-                    cover
-                    class="text-white"
-                  >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-red">
-                    <div class="text-overline text-white">
-                      Экстрим - каждый день
-                    </div>
-                  </v-card-item>
-                </v-card>
-
-                <v-card 
-                  link 
-                  @click="go" 
-                  class="h-100 d-flex flex-column"
-                  elevation="2"
-                >
-                  <v-img
-                      src="https://picsum.photos/id/237/200/300"
-                      height="150"
-                      cover
-                      class="text-white"
-                    >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
-                    <div class="text-overline text-white">
-                      Вело-мото ...
-                    </div>
-                  </v-card-item>
-                </v-card>
-              </v-col>
-            </v-row>   
-          </v-col>
-
-          <v-col align-self="start">
-            <v-row>
-              <v-col class="d-flex flex-column ga-2">
-                <v-card 
-                  link 
-                  @click="go" 
-                  class="h-100 d-flex flex-column mb-5"
-                  elevation="2"
-                >
-                  <v-img
-                    src="https://picsum.photos/200/300?grayscale"
-                    height="150"
-                    cover
-                    class="text-white"
-                  >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
-                    <div class="text-overline text-white">
-                      Экстрим - каждый день
-                    </div>
-                  </v-card-item>
-                </v-card>
-
-                <v-card 
-                  link 
-                  @click="go" 
-                  class="h-100 d-flex flex-column"
-                  elevation="2"
-                >
-                  <v-img
-                      src="https://picsum.photos/id/237/200/300"
-                      height="150"
-                      cover
-                      class="text-white"
-                    >
-                  </v-img>
-                  <v-card-item class="flex-grow-1 bg-indigo-lighten-1">
-                    <div class="text-overline text-white">
-                      Вело-мото ...
-                    </div>
-                  </v-card-item>
-                </v-card>
-              </v-col>
-            </v-row>   
-          </v-col>
-          
           <v-date-picker
             class="ma-2 text-grey-darken-1"
             v-model="date"
@@ -166,50 +55,65 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
+import { GoToSymbol } from 'vuetify/lib/composables/goto';
 
 interface OptionsCard {
+  id: number;
   link: string;
   title: string;
   image: string;
+  color: string;
 }
 
 const optionsCards = ref<OptionsCard[][]>([
   [
     {
+      id: 1,
       link: '/news1',
-      title: 'Новости 1',  
-      image: 'https://picsum.photos/id/237/200/300'
+      title: 'Главные новости спорта',  
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-deep-orange-accent-3'
     },
     {
+      id: 2,
       link: '/news1',
       title: 'Новости 2',  
-      image: 'https://picsum.photos/id/237/200/300'
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-blue-grey-darken-3'
     },
   ],
   //
   [
     {
+      id: 3,
       link: '/news1',
       title: 'Новости 3',  
-      image: 'https://picsum.photos/id/237/200/300'
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-yellow-accent-2'
     },
-    {
+    { 
+      id: 4,
       link: '/news1',
       title: 'Новости 4',  
-      image: 'https://picsum.photos/id/237/200/300'
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-green-darken-4'
     },
   ],
   //
   [
     {
+      id: 5,
       link: '/news1',
       title: 'Новости 5',  
-      image: 'https://picsum.photos/id/237/200/300'
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-pink'
     },
     {
+      id: 6,
       link: '/news1',
       title: 'Новости 6',  
-      image: 'https://picsum.photos/id/237/200/300'
+      image: 'https://picsum.photos/id/237/200/300',
+      color: 'bg-purple-darken-4'
     },
   ]
 ]);
