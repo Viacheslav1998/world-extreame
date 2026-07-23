@@ -1,15 +1,18 @@
 <template>
   <!-- static SFC | don`t dynamic theme! -->
   <v-app>
-    <v-main class="main-bg d-flex align-center ">
-      <v-container class="bg-glass-white md-6">
-        <div class="text-button">
-          Навигация по сайту.
+    <v-main class="d-flex align-center ">
+      <v-container class="md-6">
+        <div class="text-button text-blue-grey-darken-4 font-weight-bold pb-2">
+          Навигация по сайту и сервисы
         </div>
+
         <v-row justify="space-around">
+
           <v-col align-self="start">
             <v-row>
               <v-col class="d-flex flex-column ga-2">
+
                 <v-card 
                   link 
                   @click="go" 
@@ -22,10 +25,9 @@
                     cover
                     class="text-white"
                   >
-                    <v-card-title>Новости</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -46,7 +48,7 @@
                     <v-card-title>Магазин</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -70,10 +72,9 @@
                     cover
                     class="text-white"
                   >
-                    <v-card-title>Новости</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -94,7 +95,7 @@
                     <v-card-title>Магазин</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -118,10 +119,9 @@
                     cover
                     class="text-white"
                   >
-                    <v-card-title>Новости</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Экстрим - каждый день
                     </div>
                   </v-card-item>
@@ -142,7 +142,7 @@
                     <v-card-title>Магазин</v-card-title>
                   </v-img>
                   <v-card-item class="flex-grow-1">
-                    <div class="text-overline text-orange mb-1">
+                    <div class="text-overline text-grey-darken-2 mb-1">
                       Вело-мото ...
                     </div>
                   </v-card-item>
@@ -165,16 +165,6 @@
 </template>
 
 <style scoped> 
-.main-bg {
-  background-image: url('../../../public/main/pex.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-.bg-glass-white {
-  background-color: rgba(255, 255, 255, 0.5) !important;
-  backdrop-filter: blur(8px);
-}
 </style>
 
 <script setup lang="ts">
