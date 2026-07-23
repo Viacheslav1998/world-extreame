@@ -72,16 +72,16 @@ const optionsCards = ref<OptionsCard[][]>([
       id: 1,
       link: '/',
       title: 'Главные новости спорта',  
-      image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-deep-orange-accent-3',
+      image: '../../public/navi/m6.jpg',
+      color: 'bg-purple',
       disabled: false
     },
     {
       id: 2,
       link: '/news1',
-      title: 'Новости 2',  
-      image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-blue-grey-darken-3',
+      title: 'Магазин вело-мото',  
+      image: '../../public/navi/m3.jpg',
+      color: 'bg-blue-grey-darken-4',
       disabled: false
     },
   ],
@@ -90,17 +90,17 @@ const optionsCards = ref<OptionsCard[][]>([
     {
       id: 3,
       link: '/news1',
-      title: 'Новости 3',  
-      image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-yellow-accent-2',
+      title: 'Спортивный инвентарь',  
+      image: '../../public/navi/m4.jpg',
+      color: 'bg-indigo-darken-2',
       disabled: true
     },
     { 
       id: 4,
       link: '/news1',
-      title: 'Новости 4',  
-      image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-green-darken-4',
+      title: 'Партнеры',  
+      image: '../../public/navi/m5.jpg',
+      color: 'bg-teal',
       disabled: true
     },
   ],
@@ -109,24 +109,23 @@ const optionsCards = ref<OptionsCard[][]>([
     {
       id: 5,
       link: '/news1',
-      title: 'Новости 5',  
-      image: 'https://picsum.photos/id/237/200/300',
+      title: 'Мерч',  
+      image: '../../public/navi/m1.jpg',
       color: 'bg-pink',
       disabled: true
     },
     {
       id: 6,
       link: '/news1',
-      title: 'Новости 6',  
-      image: 'https://picsum.photos/id/237/200/300',
-      color: 'bg-purple-darken-4',
+      title: 'Сообщества',  
+      image: '../../public/navi/m2.jpg',
+      color: 'bg-deep-orange',
       disabled: true
     },
   ]
 ]);
 
-
-const date = ref<Date | null>(null);
+const date = ref<Date>(new Date())
 
 const minDate = new Date('2020-00-00');
 const maxDate = new Date('2030-00-00');
