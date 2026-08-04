@@ -60,7 +60,7 @@
 <style scoped> 
  .card-item {
     flex: 1 1 0%;
-  }
+ }
 </style>
 
 <script setup lang="ts">
@@ -147,3 +147,4 @@ const allowedDates = (val: unknown): boolean => {
   return false;
 };
 </script>
+

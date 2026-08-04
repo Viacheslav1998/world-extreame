@@ -4,6 +4,7 @@ import type { RouteRecordRaw } from 'vue-router'
 import Home from "../pages/Home.vue"
 import Single from "../pages/Single.vue"
 import Main from "../pages/layouts/Main.vue"
+import NotFound from '../pages/layouts/NotFound.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/main',
-    name: 'main',
+    name: 'main', 
     component: Main,
     meta: { hideLayout: true }
   },
@@ -22,6 +23,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/single',
     name: 'single',
     component: Single
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound,
+    meta: { hideLayout: true }
   }
 ]
 
