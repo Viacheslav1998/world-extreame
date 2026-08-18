@@ -26,7 +26,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
 }
 </style>
 

@@ -39,18 +39,15 @@
                 <v-card-title class="text-lg front-bold">
                   {{ post.title }}
                 </v-card-title>
-
                 <v-img 
                   :src="'/main/' + post.image"
                   height="200"
                   cover
                   alt="alter"
                 ></v-img>
-
                 <v-card-text>
                   {{ post.text }}
                 </v-card-text>
-
                 <v-card-actions class="justify-end">
                   <v-btn
                     color="red-accent-4"
