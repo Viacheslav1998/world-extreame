@@ -64,7 +64,17 @@
               <div class="d-flex align-center ga-1">
                 <span class="text-caption text-grey-darken-1 me-2 font-weight-medium">Поделится: </span>
 
-
+                <v-btn
+                  v-for="icon in icons"
+                  :key="icon.name"
+                  :icon="icon.name"
+                  :color="icon.color"
+                  :href="icon.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  density="comfortable"
+                  variant="text"
+                ></v-btn>
               </div>
 
             </div>
