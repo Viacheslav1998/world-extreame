@@ -37,6 +37,39 @@
             <v-col cols="12" sm="6">
               <v-img src="https://picsum.photos/1" class="rounded" cover></v-img>
             </v-col>
+
+            <p class="text-body-1 text-grey-darken-3 mb-4">
+              основной сгенерированный текст можно хоть столько тегов еслу у тебя есть редактор 
+              можно генерировать статьи
+            </p>
+
+            <p class="text-body-1 text-grey-darken-3 mb-6">
+              сколько угодно обзадцев опять таки если есть нужный редактор
+            </p>
+
+            <v-divider class="my-4"></v-divider>
+
+            <div class="d-flex flex-wrap align-center justify-space-between ga-4 mt-6">
+
+              <div class="d-flex flex-wrap ga-1">
+                <v-chip size="small" color="purple-darken-4" variant="flat">#wrc</v-chip>
+                <v-chip size="small" color="purple-darken-4" variant="flat">#rally</v-chip>
+                <v-chip size="small" color="purple-darken-4" variant="flat">#subaru</v-chip>
+                <v-chip size="small" color="purple-darken-4" variant="flat">#impreza</v-chip>
+                <v-chip size="small" color="purple-darken-4" variant="flat">#evo</v-chip>
+                <v-chip size="small" color="purple-darken-4" variant="flat">#шторм</v-chip>
+              </div>
+
+
+              <div class="d-flex align-center ga-1">
+                <span class="text-caption text-grey-darken-1 me-2 font-weight-medium">Поделится: </span>
+
+
+              </div>
+
+            </div>
+            
+         
           </v-row>
           <!-- space for content ↑ -->
         </v-sheet>
@@ -58,6 +91,12 @@
     href: string
   }
 
+  interface SocialIcon {
+    name: string 
+    url: string 
+    color: string
+  }
+
   const items: Item[] = [
     {
       title: 'Главная',
@@ -74,6 +113,13 @@
       disabled: true, 
       href: '/current'
     },
+  ]
+
+  const icons: SocialIcon[] = [
+    { name: 'mdi-facebook', url: 'https://facebook.com', color: 'blue-darken-3' },
+    { name: 'mdi-twitter', url: 'https://twitter.com', color: 'blue-lighten-1' },
+    { name: 'mdi-linkedin', url: 'https://linkedin.com', color: 'blue-darken-2' },
+    { name: 'mdi-instagram', url: 'https://instagram.com', color: 'pink-darken-1' },
   ]
 
 </script>
