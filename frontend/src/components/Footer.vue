@@ -13,9 +13,18 @@
         size="small"
         density="compact"
         class="ms-2"
-        @click="handleAction(item.actions)"
+        @click="handleAction(item.action)"
       >
-        <img :src="item.icon" width="12" height="12" :alt="item.alt" />
+        <img 
+          :src="item.icon"
+          width="12"
+          height="12"
+        />
+        <v-tooltip
+          activator="parent" location="top"
+        >
+        {{ getTooltipText(item.action) }}
+        </v-tooltip>
       </v-btn>
       <!-- end btn navi -->
     </div>
@@ -91,12 +100,11 @@
   color: rgb(215, 233, 52);
   font-weight: bold;
 }
-
-
 </style>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 interface icon {
     name: string
@@ -107,15 +115,29 @@ interface MenuColumn {
   items: string[]
 }
 
+type ActionType = 'admin' | 'toggle-page'
+
 interface NavItem {
-  icons: string,
-  actions: 'admin' | 'back'
+  icon: string
+  action: ActionType
 }
+
+const router = useRouter()
+const route = useRoute()
 
 const navItems = ref<NavItem[]>([
   { icon: '/news/settings.png', action: 'admin' },
-  { icon: '/news/back.png', actions: 'back'}
+  { icon: '/news/back.png', action: 'toggle-page' } 
 ])
+
+// current paga
+const isNewsPage = computed(() => route.path === '/news')
+
+// alt title / dynamic change
+const getTooltipText = (action: ActionType): string => {
+  if (action === 'admin') return 'Админ-панель'
+  return isNewsPage.value ? 'На главную' : 'к прошлой новости'
+}
 
 const icons: icon[] = [
   {  name: 'mdi-facebook' },
