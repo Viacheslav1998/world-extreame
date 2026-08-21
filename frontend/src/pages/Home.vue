@@ -1,7 +1,7 @@
 <template>
 	<!-- pheraps need slots? -->
 	<v-container>
-		<v-row no-gutters class="bg-blue-grey-lighten-5">
+		<v-row no-gutters class="bg-blue-grey-lighten-4">
       <v-col cols="7">
         <v-sheet class="pa-2 ma-2 rounded">
           <h2 class="text-blue-grey">Быстрый магазин</h2>

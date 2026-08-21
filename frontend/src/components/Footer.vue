@@ -1,4 +1,32 @@
 <template>
+  <div class="bg-indigo-lighten-2 d-flex justify-space-between">
+    <div> 
+      <p>быстрая навигация:</p> 
+    </div>
+    <v-spacer></v-spacer>
+    <!-- btn navi -->
+    <div
+      v-for="(item, index) in navItems"
+      :key="index"
+      class="d-flex align-center py-2 px-2"
+    >
+      <v-btn
+        icon
+        size="small"
+        density="compact"
+        @click="handleAction(item.action)"
+      >
+        <v-img
+          :src="item.icon"
+          class="d-inline-block"
+          width="12"
+          height="12"
+        >
+        </v-img>
+      </v-btn>
+    </div>
+    <!-- end btn navi -->
+  </div>
   <v-footer class="text-center d-flex flex-column ga-2 py-4" color="indigo-lighten-1">
     <div class="d-flex ga-3">
       <v-btn
@@ -75,43 +103,55 @@
 </style>
 
 <script setup lang="ts">
-  interface icon {
-      name: string
+import { ref } from 'vue'
+
+interface icon {
+    name: string
+}
+
+interface MenuColumn {
+  title: string, 
+  items: string[]
+}
+
+interface NavItem {
+  icons: string,
+  actions: 'admin' | 'back'
+}
+
+const navItems = ref<NavItem[]>([
+  { icon: '/news/settings.png', action: 'admin' },
+  { icon: '/news/back.png', actions: 'back'}
+])
+
+const icons: icon[] = [
+  {  name: 'mdi-facebook' },
+  {  name: 'mdi-twitter' },
+  {  name: 'mdi-linkedin' },
+  {  name: 'mdi-instagram' }
+]
+
+const MenuColumns: MenuColumn[] = [
+  {
+    title: 'Партнеры',
+    items: ['KSW7', 'WebStrom', 'Kikdown', 'GameGround']
+  },
+  {
+    title: 'Компания',
+    items: ['О нас', 'Вакансии', 'Контакты'] 
+  },
+  {
+    title: 'Разработчики',
+    items: ['SilentStrom', 'Ak4ella']
+  },
+  {
+    title: 'Магазины',
+    items: ['Bclcross', 'TGready', 'Adventures']
+  },
+  {
+    title: 'Документы',
+    items: ['Политика', 'Оферта']
   }
-
-  interface MenuColumn {
-    title: string, 
-    items: string[]
-  }
-
-  const icons: icon[] = [
-    {  name: 'mdi-facebook' },
-    {  name: 'mdi-twitter' },
-    {  name: 'mdi-linkedin' },
-    {  name: 'mdi-instagram' }
-  ]
-
-  const MenuColumns: MenuColumn[] = [
-    {
-      title: 'Партнеры',
-      items: ['KSW7', 'WebStrom', 'Kikdown', 'GameGround']
-    },
-    {
-      title: 'Компания',
-      items: ['О нас', 'Вакансии', 'Контакты'] 
-    },
-    {
-      title: 'Разработчики',
-      items: ['SilentStrom', 'Ak4ella']
-    },
-     {
-      title: 'Магазины',
-      items: ['Bclcross', 'TGready', 'Adventures']
-    },
-    {
-      title: 'Документы',
-      items: ['Политика', 'Оферта']
-    }
-  ]
+]
 
 </script>

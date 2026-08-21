@@ -7,9 +7,9 @@
         divider="/"
       ></v-breadcrumbs>
     </div>
-    <v-row no-gutters class="bg-blue-grey-lighten-5">
+    <v-row no-gutters>
       <v-col cols="12">
-        <v-sheet class="pa-6 bg-blue-grey-lighten-5">
+        <v-sheet class="pa-6 bg-blue-grey-lighten-4">
           <div class="d-flex justify-space-between align-center mb-4">
             <span class="text-overline text-blue-grey front-weight-bold">категория: ралли кросс</span>
             <span class="text-caption text-grey">18 августа 2020</span>
@@ -46,11 +46,8 @@
             <p class="text-body-1 text-grey-darken-3 mb-6">
               сколько угодно обзадцев опять таки если есть нужный редактор
             </p>
-
             <v-divider class="my-4"></v-divider>
-
             <div class="d-flex flex-wrap align-center justify-space-between ga-4 mt-6">
-
               <div class="d-flex flex-wrap ga-1">
                 <v-chip size="small" color="purple-darken-4" variant="flat">#wrc</v-chip>
                 <v-chip size="small" color="purple-darken-4" variant="flat">#rally</v-chip>
@@ -59,11 +56,8 @@
                 <v-chip size="small" color="purple-darken-4" variant="flat">#evo</v-chip>
                 <v-chip size="small" color="purple-darken-4" variant="flat">#шторм</v-chip>
               </div>
-
-
               <div class="d-flex align-center ga-1">
                 <span class="text-caption text-grey-darken-1 me-2 font-weight-medium">Поделится: </span>
-
                 <v-btn
                   v-for="icon in icons"
                   :key="icon.name"
@@ -76,10 +70,7 @@
                   variant="text"
                 ></v-btn>
               </div>
-
             </div>
-            
-         
           </v-row>
           <!-- space for content ↑ -->
         </v-sheet>
