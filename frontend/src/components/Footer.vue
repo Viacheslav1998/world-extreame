@@ -1,32 +1,25 @@
 <template>
-  <div class="bg-indigo-lighten-2 d-flex justify-space-between">
-    <div> 
-      <p>быстрая навигация:</p> 
-    </div>
-    <v-spacer></v-spacer>
-    <!-- btn navi -->
-    <div
-      v-for="(item, index) in navItems"
-      :key="index"
-      class="d-flex align-center py-2 px-2"
-    >
+  <v-container>
+    <div class="bg-indigo-lighten-2 d-flex align-center px-4 py-2">
+      <div class="py-2 pl-2"> 
+        <span class="font-weight-bold">быстрая навигация:</span> 
+      </div>
+      <v-spacer></v-spacer>
+      <!-- btn navi -->   
       <v-btn
+        v-for="(item, index) in navItems"
+        :key="index"
         icon
         size="small"
         density="compact"
-        @click="handleAction(item.action)"
+        class="ms-2"
+        @click="handleAction(item.actions)"
       >
-        <v-img
-          :src="item.icon"
-          class="d-inline-block"
-          width="12"
-          height="12"
-        >
-        </v-img>
+        <img :src="item.icon" width="12" height="12" :alt="item.alt" />
       </v-btn>
+      <!-- end btn navi -->
     </div>
-    <!-- end btn navi -->
-  </div>
+  </v-container>
   <v-footer class="text-center d-flex flex-column ga-2 py-4" color="indigo-lighten-1">
     <div class="d-flex ga-3">
       <v-btn
