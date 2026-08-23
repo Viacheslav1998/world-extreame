@@ -5,7 +5,7 @@
         <span class="font-weight-bold">быстрая навигация:</span> 
       </div>
       <v-spacer></v-spacer>
-      <!-- btn navi -->   
+      <!-- btn faster navi -->   
       <v-btn
         v-for="(item, index) in navItems"
         :key="index"
