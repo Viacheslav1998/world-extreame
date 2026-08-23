@@ -126,12 +126,12 @@ const navItems = ref<NavItem[]>([
 ])
 
 // current page
-const isNewsPage = computed(() => route.path)
+const currentPage = computed(() => route.path === '/')
 
 // alt title / dynamic change
 const getTooltipText = (action: ActionType): string => {
   if (action === 'admin') return 'Админ-панель'
-  return isNewsPage.value ? 'На главную' : 'назад'
+  return currentPage.value ? 'к прошлой новости' : 'На главную'
 }
 
 // fast navigation
