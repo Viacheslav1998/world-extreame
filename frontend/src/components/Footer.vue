@@ -51,27 +51,22 @@
         Казахстан - Греция - Италия 
     </div>
     <v-divider class="my-2" thickness="2" width="50"></v-divider>
-    <v-container>
-      <div 
-        class="d-flex justify-space-around mb-6"
-      >
-        <div
+    <div class="w-100 px-4">
+      <v-row justify="space-around">
+        <v-col
           v-for="column in MenuColumns"
           :key="column.title"
-          class="column"
+          cols="12"
+          sm="2"
+          class="text-left"
         >
-           <h4>{{ column.title }}</h4>
-           <ul class="custom-list-none custom-list">
-              <li
-                v-for="item in column.items"
-                :item="item"
-              >
-                <a href="#" class="custom-line-menu custom-line-menu">{{ item }}</a>
-              </li>
-           </ul>
-        </div>
-      </div>
-    </v-container>
+          <h4 class="text-white mb-2">{{ column.title }}</h4>
+          <div v-for="item in column.items" :key="item" class="mb-1">
+            <a href="#" class="custom-line-menu">{{ item }}</a>
+          </div>
+        </v-col>
+      </v-row>
+    </div>
     <v-divider thickness="2" width="50"></v-divider>
     <div>
        <span class="text-red-accent-1 font-weight-bold">{{ new Date().getFullYear() }}. </span><span>Все права сохранены.</span><br><br>
@@ -107,7 +102,7 @@ import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 interface icon {
-    name: string
+  name: string
 }
 
 interface MenuColumn {
@@ -130,13 +125,27 @@ const navItems = ref<NavItem[]>([
   { icon: '/news/back.png', action: 'toggle-page' } 
 ])
 
-// current paga
-const isNewsPage = computed(() => route.path === '/news')
+// current page
+const isNewsPage = computed(() => route.path)
 
 // alt title / dynamic change
 const getTooltipText = (action: ActionType): string => {
   if (action === 'admin') return 'Админ-панель'
-  return isNewsPage.value ? 'На главную' : 'к прошлой новости'
+  return isNewsPage.value ? 'На главную' : 'назад'
+}
+
+// fast navigation
+const handleAction = (actionType: ActionType): void => {
+  if (actionType === 'admin') {
+    router.push('/admin')
+  } else if (actionType === 'toggle-page') {
+    if (route.path === '/single') {
+      router.push('/')
+    } 
+    else {
+      router.push('/single')
+    }
+  }
 }
 
 const icons: icon[] = [
