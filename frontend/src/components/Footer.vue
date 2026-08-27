@@ -92,7 +92,7 @@
 }
 
 .custom-line-menu:hover {
-  color: rgb(215, 233, 52);
+  color: #FF8A80;
   font-weight: bold;
 }
 </style>
