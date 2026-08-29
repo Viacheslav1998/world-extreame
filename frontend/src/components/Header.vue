@@ -8,9 +8,9 @@
       >
         <span class="text-h6 font-weight-bold">World-<span class="text-red-darken-4">Extreame</span>.com</span>
         <v-spacer />
-        <v-btn variant="text">Главная</v-btn>
-        <v-btn variant="text">Статистика</v-btn>
-        <v-btn variant="text">Контакты</v-btn>
+        <v-btn to="/" variant="text">Главная</v-btn>
+        <v-btn to="/stat" variant="text">Статистика</v-btn>
+        <v-btn to="/contact" variant="text">Контакты</v-btn>
       </v-sheet>
     </v-container>
     <v-container class="text-center">
