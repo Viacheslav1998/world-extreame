@@ -34,7 +34,26 @@
       </v-sheet>
     </div>
   </v-container>
+
+  <v-container>
+    <v-card class="pa-4 rounded-xl" variant="flat" color="purple-lighten-5">
+      <v-card-title class="text-purple-darken-4 font-weight-bold">
+        Мониторинг (Real-time из БД)
+      </v-card-title>
+      
+      <v-card-text>
+        <!--ApexCharts -->
+        <apexchart
+          type="line"
+          height="350"
+          :options="chartOptions"
+          :series="chartSeries"
+        ></apexchart>
+      </v-card-text>
+    </v-card>
+  </v-container>
 </template>
+
 
 <style scoped>
   .pl-header {
@@ -45,5 +64,69 @@
 </style>
 
 <script setup lang="ts">
-console.log(123);
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const chartOptions = ref({
+  chart: {
+    id: 'ts-realtime-stats',
+    animations: {
+      enabled: true,
+      easing: 'linear',
+      dynamicAnimation: {
+        speed: 1000 
+      }
+    },
+    toolbar: { show: false }
+  },
+  colors: ['#4A148C'],
+  xaxis: {
+    categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл']
+  },
+  stroke: {
+    curve: 'smooth' 
+  }
+})
+
+//   данными из API)
+interface ChartSeriesItem {
+  name: string
+  data: number[]
+}
+
+const chartSeries = ref<ChartSeriesItem[]>([
+  {
+    name: 'Загрузка системы (%)',
+    data: [30, 40, 35, 50, 49, 60, 70]
+  }
+])
+
+// 3.  Real-time работы с API
+let intervalId: ReturnType<typeof setInterval> | null = null
+
+const fetchApiData = (): void => {
+  // Когда будете делать реальный запрос через fetch или axios:
+  // const response = await axios.get<number[]>('/api/stats')
+  // const newData = response.data
+  
+  // Генерируем новые случайные данные (строго массив чисел `number[]`)
+  const newData: number[] = Array.from({ length: 7 }, () => Math.floor(Math.random() * 100))
+  
+  // Присваиваем новое значение — реактивность Vue 3 сама обновит график
+  chartSeries.value = [{
+    name: 'Загрузка системы (%)',
+    data: newData
+  }]
+}
+
+// Запускаем опрос "сервера" при монтировании компонента
+onMounted(() => {
+  intervalId = setInterval(fetchApiData, 3000) // Обновление каждые 3 секунды
+})
+
+// Обязательно очищаем таймер, чтобы не нагружать браузер, если ушли со страницы
+onUnmounted(() => {
+  if (intervalId) {
+    clearInterval(intervalId)
+  }
+})
 </script>
