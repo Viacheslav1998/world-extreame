@@ -1,15 +1,15 @@
 <template>
   <v-container>
     <div class="pl-header d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
-      <div class="bg-purple-darken-3">
+      <div class="x-panel rounded elevation-4">
         <h1>статистика</h1>
         <p>в реальном времени</p>
       </div>
-       <div class="bg-purple-darken-4">
+       <div class="x-panel rounded elevation-4">
         <h1>узнай</h1>
         <p>сколько гонок и киломатража проехано</p>
       </div>
-       <div class="bg-purple-darken-4">
+       <div class="x-panel rounded elevation-4">
         <h1>что то еще</h1>
         <p>какие то данные</p>
       </div>
@@ -52,15 +52,28 @@
       </v-card-text>
     </v-card>
   </v-container>
+
+
+  <v-container>
+    <div class="pl-footer d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
+      <h2>gg</h2>
+    </div>
+  </v-container>
 </template>
 
 
 <style scoped>
   .pl-header {
-    background-image: url('/main/mountain.jpg');
+    background-image: url('/stats/mix1.jpg');
     background-position: center;
     background-size: cover;
   }
+  .x-panel {
+    padding: 20px;
+    background-color: rgba(8, 6, 49, 0.8);
+  }
+  .x-panel h1 { color: rgb(207, 8, 124);}
+  .x-panel p { color: rgb(241, 228, 204);}
 </style>
 
 <script setup lang="ts">
