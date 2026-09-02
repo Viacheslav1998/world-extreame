@@ -1,22 +1,46 @@
 <template>
-  <v-container>
-    <div class="pl-header d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
-      <div class="x-panel rounded elevation-4">
+  <v-container fluid>
+    <div class="px-2 py-2 mongo-box">
+      <div>
+        <v-btn
+          v-for="theme in themes"
+          :key="theme.name"
+          icon
+          :style="{ backgroundColor: theme.color }"
+          :class="{ 'active-theme-border': currentTheme === theme.name }"
+          size="small"
+          @click="setTheme(theme.name)"
+        >
+          <v-icon
+            :color="getIconColor(theme.name)"
+            size="small"
+          >
+            {{ theme.icon }}
+          </v-icon>
+        </v-btn>
+      </div>
+    </div>
+    <div class="px-2 py-7 my-2 bg-grey-lighten-2">
+      <div class="text-body-1">Проект: панель доски статистики</div>
+      <div>Статистика по начислениям, гонкам, акциям, прогрессу</div>
+    </div>
+    <div class="d-flex justify-space-between bg-blue-grey-lighten-4 rounded px-2 py-2">
+      <div class="rounded">
         <h1>статистика</h1>
         <p>в реальном времени</p>
       </div>
-       <div class="x-panel rounded elevation-4">
+       <div class="rounded">
         <h1>узнай</h1>
         <p>сколько гонок и киломатража проехано</p>
       </div>
-       <div class="x-panel rounded elevation-4">
+       <div class="rounded">
         <h1>что то еще</h1>
         <p>какие то данные</p>
       </div>
     </div>
   </v-container>
 
-  <v-container>
+  <v-container fluid>
     <div class="bg-blue-grey-lighten-4 d-flex justify-start pa-2 rounded">
       <v-sheet
         v-for="n in 3"
@@ -35,7 +59,7 @@
     </div>
   </v-container>
 
-  <v-container>
+  <v-container fluid>
     <v-card class="pa-4 rounded-xl" variant="flat" color="purple-lighten-5">
       <v-card-title class="text-purple-darken-4 font-weight-bold">
         Мониторинг (Real-time из БД)
@@ -53,31 +77,65 @@
     </v-card>
   </v-container>
 
-
-  <v-container>
+  <v-container fluid>
     <div class="pl-footer d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
       <h2>gg</h2>
     </div>
   </v-container>
 </template>
 
-
 <style scoped>
-  .pl-header {
-    background-image: url('/stats/mix1.jpg');
-    background-position: center;
-    background-size: cover;
-  }
-  .x-panel {
-    padding: 20px;
-    background-color: rgba(8, 6, 49, 0.8);
-  }
-  .x-panel h1 { color: rgb(207, 8, 124);}
-  .x-panel p { color: rgb(241, 228, 204);}
+.active-theme-border {
+  outline: 3px solid #757575 !important;
+  outline-offset: 2px;
+  transition: outline 0.2s ease;
+}
+
+.mongo-box {
+  background-color: rgb(var(--v-theme-mongoBase)); 
+}
+
+.v-application {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, outline-color 0.3s ease;
+}
+
+.mongo-box {
+  transition: background-color 0.3s ease !important;
+}
+
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useTheme } from 'vuetify'
+
+interface ThemeOption {
+  name: string
+  color: string
+  icon: string
+}
+
+const themeManager = useTheme()
+
+// get current active name theme
+const currentTheme = computed<string>(() => themeManager.global.name.value)
+
+// set themes
+const themes: ThemeOption[] = [
+  { name: 'light', color: '#FFFFFF', icon: 'mdi-white-balance-sunny'},
+  { name: 'dark', color: '#121212', icon: 'mdi-weather-night'},
+  { name: 'orange-theme', color: '#FF9800', icon: 'mdi-fruit-citrus'} 
+]
+
+// toogle themes
+const setTheme = (themeName: string): void => {
+  themeManager.global.name.value = themeName
+}
+
+const getIconColor = (themeName: string): string => {
+  if (themeName === 'light') return '#000000'
+  return '#FFFFFF' // Для темной и оранжевой сделаем белые иконки
+}
 
 const chartOptions = ref({
   chart: {
