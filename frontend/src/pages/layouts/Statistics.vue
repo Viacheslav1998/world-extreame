@@ -78,9 +78,7 @@
       <v-card-title class="text-purple-darken-4 font-weight-bold">
         Мониторинг (Real-time из БД)
       </v-card-title>
-      
       <v-card-text>
-        <!--ApexCharts -->
         <apexchart
           type="line"
           height="350"
@@ -93,15 +91,39 @@
 
   <v-container fluid>
     <v-row no-gutters>
-      <v-col cols="6">
-        <div>123</div>
-        <div>123</div>
+
+      <v-col cols="6" class="pa-1">
+        <v-sheet class="h-100 pa-4" color="white" border rounded="lg">
+          <div>Большой блок (Слева)</div>
+        </v-sheet>
       </v-col>
+
       <v-col cols="6">
-        <div>123</div>
-        <div>123</div>
-        <div>123</div>
-        <div>123</div>
+        <v-row no-gutters>
+          <v-col cols="6" class="pa-1">
+            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+              <div>$874</div>
+            </v-sheet>
+          </v-col>
+          
+          <v-col cols="6" class="pa-1">
+            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+              <div>$1283</div>
+            </v-sheet>
+          </v-col>
+          
+          <v-col cols="6" class="pa-1">
+            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+              <div>$1286</div>
+            </v-sheet>
+          </v-col>
+
+          <v-col cols="6" class="pa-1">
+            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+              <div>$564</div>
+            </v-sheet>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
