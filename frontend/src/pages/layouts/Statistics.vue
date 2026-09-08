@@ -91,7 +91,6 @@
 
   <v-container fluid>
     <v-row no-gutters>
-
       <v-col cols="6" class="pa-1">
         <v-sheet class="h-100 pa-4" color="white" border rounded="lg">
           <div>Большой блок (Слева)</div>
@@ -129,10 +128,20 @@
   </v-container>
 
   <v-container fluid>
+    <v-data-table
+      :headers="headers"
+      :items="plants"
+      density="compact"
+      item-key="name"
+    ></v-data-table>
+  </v-container>
+
+  <v-container fluid>
     <div class="pl-footer d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
       <h2>gg</h2>
     </div>
   </v-container>
+
 </template>
 
 <style scoped>
@@ -182,6 +191,108 @@ const themes: ThemeOption[] = [
   { name: 'dark', color: '#121212', icon: 'mdi-weather-night'},
   { name: 'orange-theme', color: '#FF9800', icon: 'mdi-fruit-citrus'} 
 ]
+
+
+// tables 
+interface Header {
+  title: string
+  align?: 'start' | 'end' | 'center'
+  sortable?: boolean
+  key: string
+}
+
+// headers
+const headers: Header[] = [
+  { title: 'Гонщик', align: 'start', sortable: false, key: 'name'},
+  { title: 'Машина', align: 'end', key: 'car' },
+  { title: 'Дисциплина', align: 'end', key: 'сlass' },
+  { title: 'Статус', align: 'end', key: 'status' },
+  { title: 'Доход', align: 'end', key: 'profit' },
+]
+
+interface Plants {
+  name: string
+  car: string
+  сlass: string
+  status: string
+  profit: number
+}
+
+const plants: Plants[] = [
+   {
+      name: 'Джон',
+      car: 'Honda civic (2003)',
+      сlass: 'Rally',
+      status: 'выбыл',
+      profit: -1200,
+    },
+    {
+      name: 'Снэйк',
+      car: 'Toyota yaris',
+      сlass: 'Rally cross',
+      status: 'участвует',
+      profit: 2200,
+    },
+    {
+      name: 'Монтана',
+      car: 'Nissan 240sx',
+      сlass: 'Drift',
+      status: 'прошел',
+      profit: 4000,
+    },
+    {
+      name: 'Кандис',
+      car: 'Mitsubishi evo',
+      сlass: 'Drift',
+      status: 'прошел',
+      profit: 4400,
+    },
+    {
+      name: 'Стас',
+      car: 'Saab',
+      сlass: 'Rally',
+      status: 'учавствует',
+      profit: 2000,
+    },
+    {
+      name: 'Купер Н',
+      car: 'Aston Martin',
+      сlass: 'Grip',
+      status: 'учавствует',
+      profit: 5000,
+    },
+    {
+      name: 'Артем',
+      car: 'Nissan 370z',
+      сlass: 'Drift',
+      status: 'прошел',
+      profit: 6000,
+    },
+    {
+      name: 'Вячеслав',
+      car: 'BMW E30',
+      сlass: 'Rally',
+      status: 'прошел',
+      profit: 4100,
+    },
+    {
+      name: 'Илья',
+      car: 'Nissan r32',
+      сlass: 'Rally',
+      status: 'учавствует',
+      profit: 6500,
+    },
+    {
+      name: 'Максим',
+      car: 'Vaz 2107',
+      сlass: 'Rally',
+      status: 'учавствует',
+      profit: 2590,
+    },
+]
+
+
+// end tables
 
 // toogle themes
 const setTheme = (themeName: string): void => {
@@ -245,12 +356,11 @@ const fetchApiData = (): void => {
   }]
 }
 
-// Запускаем опрос "сервера" при монтировании компонента
 onMounted(() => {
-  intervalId = setInterval(fetchApiData, 3000) // Обновление каждые 3 секунды
+  intervalId = setInterval(fetchApiData, 3000)
 })
 
-// Обязательно очищаем таймер, чтобы не нагружать браузер, если ушли со страницы
+// чистка на выхрде что бы не засорять память
 onUnmounted(() => {
   if (intervalId) {
     clearInterval(intervalId)

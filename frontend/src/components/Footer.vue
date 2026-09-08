@@ -101,7 +101,7 @@
 import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-interface icon {
+interface Icon {
   name: string
 }
 
@@ -148,7 +148,7 @@ const handleAction = (actionType: ActionType): void => {
   }
 }
 
-const icons: icon[] = [
+const icons: Icon[] = [
   {  name: 'mdi-facebook' },
   {  name: 'mdi-twitter' },
   {  name: 'mdi-linkedin' },
