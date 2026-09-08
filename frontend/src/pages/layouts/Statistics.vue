@@ -24,7 +24,7 @@
         EN
       </div>
     </div>
-    <div class="d-flex px-2 py-4 my-2   mongo-box">
+    <div class="d-flex px-2 py-4 mt-8 mongo-box">
       <div>
         <v-icon
           class="mdi mdi-balloon icon-ballon-custom"
@@ -38,29 +38,15 @@
          <div>Статистика по начислениям, гонкам, акциям, прогрессу</div>
       </div>
     </div>
-    <div class="d-flex justify-space-between bg-blue-grey-lighten-4 rounded px-2 py-2">
-      <div class="rounded">
-        <h1>статистика</h1>
-        <p>в реальном времени</p>
-      </div>
-      <div class="rounded">
-        <h1>узнай</h1>
-        <p>сколько гонок и киломатража проехано</p>
-      </div>
-       <div class="rounded">
-        <h1>что то еще</h1>
-        <p>какие то данные</p>
-      </div>
-    </div>
   </v-container>
 
   <v-container fluid>
-    <div class="bg-blue-grey-lighten-4 d-flex justify-start pa-2 rounded">
+    <div class="mongo-box d-flex justify-start pa-2 ">
       <v-sheet
         v-for="n in 3"
         :key="n"
         color="purple-darken-4"
-        class="flex-grow-1 ma-2 pa-4 rounded"
+        class="flex-grow-1 ma-2 pa-4 "
         elevation="2"
       >
         <h1 class="text-h5 text-white mb-2">
@@ -74,8 +60,9 @@
   </v-container>
 
   <v-container fluid>
-    <v-card class="pa-4 rounded-xl" variant="flat" color="purple-lighten-5">
-      <v-card-title class="text-purple-darken-4 font-weight-bold">
+    
+    <v-card class="pa-4 mongo-box" variant="flat" >
+      <v-card-title class="font-weight-bold">
         Мониторинг (Real-time из БД)
       </v-card-title>
       <v-card-text>
@@ -91,34 +78,34 @@
 
   <v-container fluid>
     <v-row no-gutters>
-      <v-col cols="6" class="pa-1">
-        <v-sheet class="h-100 pa-4" color="white" border rounded="lg">
+      <v-col cols="6" class="pr-1 py-1">
+        <v-sheet class="h-100 pa-4" color="white" border >
           <div>Большой блок (Слева)</div>
         </v-sheet>
       </v-col>
 
       <v-col cols="6">
         <v-row no-gutters>
-          <v-col cols="6" class="pa-1">
-            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+          <v-col cols="6" class="pl-1 py-1">
+            <v-sheet class="pa-4" height="200" color="white" border >
               <div>$874</div>
             </v-sheet>
           </v-col>
           
-          <v-col cols="6" class="pa-1">
-            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+          <v-col cols="6" class="pl-2 py-1">
+            <v-sheet class="pa-4" height="200" color="white" border >
               <div>$1283</div>
             </v-sheet>
           </v-col>
           
-          <v-col cols="6" class="pa-1">
-            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+          <v-col cols="6" class="pl-1 py-1">
+            <v-sheet class="pa-4" height="200" color="white" border >
               <div>$1286</div>
             </v-sheet>
           </v-col>
 
-          <v-col cols="6" class="pa-1">
-            <v-sheet class="pa-4" height="200" color="white" border rounded="lg">
+          <v-col cols="6" class="pl-2 py-1">
+            <v-sheet class="pa-4" height="200" color="white" border >
               <div>$564</div>
             </v-sheet>
           </v-col>
@@ -129,6 +116,7 @@
 
   <v-container fluid>
     <v-data-table
+      class=""
       :headers="headers"
       :items="plants"
       density="compact"
@@ -137,8 +125,8 @@
   </v-container>
 
   <v-container fluid>
-    <div class="pl-footer d-flex justify-space-between bg-blue-grey-lighten-4 px-4 py-4 rounded">
-      <h2>gg</h2>
+    <div class="pl-footer d-flex justify-space-between mongo-box px-4 py-4 ">
+      <h4>Motostorm-statics</h4>
     </div>
   </v-container>
 
@@ -168,6 +156,7 @@
   background-color: #e0e0e0;
 }
 
+.milk { background-color: #E2DDD4;}
 </style>
 
 <script setup lang="ts">
@@ -290,8 +279,6 @@ const plants: Plants[] = [
       profit: 2590,
     },
 ]
-
-
 // end tables
 
 // toogle themes
@@ -301,27 +288,36 @@ const setTheme = (themeName: string): void => {
 
 const getIconColor = (themeName: string): string => {
   if (themeName === 'light') return '#000000'
-  return '#FFFFFF' // Для темной и оранжевой сделаем белые иконки
+  return '#FFFFFF'
 }
 
-const chartOptions = ref({
-  chart: {
-    id: 'ts-realtime-stats',
-    animations: {
-      enabled: true,
-      easing: 'linear',
-      dynamicAnimation: {
-        speed: 1000 
-      }
+
+const chartOptions = computed(() => {
+  const isDark = themeManager.global.current.value.dark
+
+  return {
+    chart: {
+      id: 'ts-realtime-stats',
+      foreColor: isDark ? '#FFFFFF' : '#333333', 
+      animations: {
+        enabled: true,
+        easing: 'linear',
+        dynamicAnimation: {
+          speed: 1000 
+        }
+      },
+      toolbar: { show: false }
     },
-    toolbar: { show: false }
-  },
-  colors: ['#4A148C'],
-  xaxis: {
-    categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл']
-  },
-  stroke: {
-    curve: 'smooth' 
+    theme: {
+      mode: isDark ? 'dark' : 'light'
+    },
+    colors: [isDark ? 'orange' : 'red'],
+    xaxis: {
+      categories: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл']
+    },
+    stroke: {
+      curve: 'smooth' 
+    }
   }
 })
 
@@ -349,7 +345,6 @@ const fetchApiData = (): void => {
   // Генерируем новые случайные данные (строго массив чисел `number[]`)
   const newData: number[] = Array.from({ length: 7 }, () => Math.floor(Math.random() * 100))
   
-  // Присваиваем новое значение — реактивность Vue 3 сама обновит график
   chartSeries.value = [{
     name: 'Загрузка системы (%)',
     data: newData

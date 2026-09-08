@@ -30,7 +30,7 @@
               info: '#1976D2',
               success: '#388E3C',
               warning: '#F57C00',
-              mongoBase: '#cc9c8d'
+              mongoBase: '#CDC6B8'
             },
           },
           light: { dark: false, colors: { background: '#FFF', mongoBase: '#E0E0E0' } },
