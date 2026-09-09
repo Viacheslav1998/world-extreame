@@ -19,6 +19,10 @@
             {{ theme.icon }}
           </v-icon>
         </v-btn>
+        <br>
+        <div class="font-weight-thin ml-1">
+          <p> World-Extreame.com </p>
+        </div>
       </div>
       <div>
         EN
@@ -72,7 +76,7 @@
           variant="text"
           density="comfortable"
           class="me-2"
-          :to="{ name: 'Home' }" 
+          :to="{ name: 'main' }" 
         ></v-btn>
         
         <h1 class="text-h5 mb-0  text-red">
@@ -97,12 +101,12 @@
         ></v-btn>
         
         <h1 class="text-h5 mb-0 text-success">
-          вернуться 
+          о нас 
         </h1>
       </div>
       
       <p class="text-body-2 text-medium-emphasis">
-        главная выбор категории 
+        контакты и контракты
       </p>
     </v-sheet>
       
@@ -166,7 +170,6 @@
 
   <v-container fluid>
     <v-data-table
-      class=""
       :headers="headers"
       :items="plants"
       density="compact"
@@ -177,7 +180,7 @@
   <v-container fluid>
     <div class="pl-footer d-flex justify-start mongo-box px-4 py-4">
       <div class="ma-2">
-        <h4 class="text-red font-weight-thin">Motostorm-statics</h4>
+        <h4 class="font-weight-thin">Motostorm-statics</h4>
       </div>
       <div class="ma-2 font-weight-thin">
         <p>Apache-Host-Panel</p>
