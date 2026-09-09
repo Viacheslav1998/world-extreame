@@ -34,28 +34,78 @@
         </v-icon>
       </div>
       <div>
-         <div class="text-body-1">Проект: панель доски статистики</div>
-         <div>Статистика по начислениям, гонкам, акциям, прогрессу</div>
+        <div class="text-body-1 pt-1">Проект: панель доски статистики</div>
+        <div>Статистика по начислениям, гонкам, акциям, прогрессу</div>
       </div>
     </div>
   </v-container>
 
   <v-container fluid>
     <div class="mongo-box d-flex justify-start pa-2 ">
-      <v-sheet
-        v-for="n in 3"
-        :key="n"
-        color="purple-darken-4"
-        class="flex-grow-1 ma-2 pa-4 "
-        elevation="2"
-      >
-        <h1 class="text-h5 text-white mb-2">
-          main {{ n }}
+      
+     <v-sheet class="flex-grow-1 ma-2 pa-4" rounded="lg" border>
+      <div class="d-flex align-center mb-2">
+        <v-btn
+          color="primary"
+          icon="mdi-arrow-left"
+          variant="text"
+          density="comfortable"
+          class="me-2"
+          :to="{ name: 'Home' }" 
+        ></v-btn>
+        
+        <h1 class="text-h5 mb-0 text-primary">
+          вернуться 
         </h1>
-        <p class="text-body-2 text-purple-lighten-4">
-          title asdaskd a;skd a;lskd 
-        </p>
-      </v-sheet>
+      </div>
+      
+      <p class="text-body-2 text-medium-emphasis">
+        просто и быстро
+      </p>
+    </v-sheet>
+
+    <v-sheet class="flex-grow-1 ma-2 pa-4" rounded="lg" border>
+      <div class="d-flex align-center mb-2">
+        <v-btn
+          color="red"
+          icon="mdi-arrow-left"
+          variant="text"
+          density="comfortable"
+          class="me-2"
+          :to="{ name: 'Home' }" 
+        ></v-btn>
+        
+        <h1 class="text-h5 mb-0  text-red">
+          в меню 
+        </h1>
+      </div>
+      
+      <p class="text-body-2 text-medium-emphasis">
+        выбери категорию, магазин или новости
+      </p>
+    </v-sheet>
+
+    <v-sheet class="flex-grow-1 ma-2 pa-4" rounded="lg" border>
+      <div class="d-flex align-center mb-2">
+        <v-btn
+          color="success"
+          icon="mdi-arrow-left"
+          variant="text"
+          density="comfortable"
+          class="me-2"
+          :to="{ name: 'Home' }" 
+        ></v-btn>
+        
+        <h1 class="text-h5 mb-0 text-success">
+          вернуться 
+        </h1>
+      </div>
+      
+      <p class="text-body-2 text-medium-emphasis">
+        главная выбор категории 
+      </p>
+    </v-sheet>
+      
     </div>
   </v-container>
 
@@ -63,7 +113,7 @@
     
     <v-card class="pa-4 mongo-box" variant="flat" >
       <v-card-title class="font-weight-bold">
-        Мониторинг (Real-time из БД)
+        Мониторинг (Real-time)
       </v-card-title>
       <v-card-text>
         <apexchart
@@ -125,8 +175,13 @@
   </v-container>
 
   <v-container fluid>
-    <div class="pl-footer d-flex justify-space-between mongo-box px-4 py-4 ">
-      <h4>Motostorm-statics</h4>
+    <div class="pl-footer d-flex justify-start mongo-box px-4 py-4">
+      <div class="ma-2">
+        <h4 class="text-red font-weight-thin">Motostorm-statics</h4>
+      </div>
+      <div class="ma-2 font-weight-thin">
+        <p>Apache-Host-Panel</p>
+      </div>
     </div>
   </v-container>
 
