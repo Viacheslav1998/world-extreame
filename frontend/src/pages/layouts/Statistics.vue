@@ -129,46 +129,81 @@
     </v-card>
   </v-container>
 
- 
-
-  <v-container fluid>
-     <div>статистика побед: износ шин, траты на запчасти, топливо, кузов</div>
+  <v-container fluid class="pa-4">
+    <div class="mb-4">статистика побед: износ шин, траты на запчасти, топливо, кузов</div>
+    
     <v-row no-gutters class="mongo-box">      
 
-      <v-card-text >
-        <apexchart
-          type="bar"
-          height="350"
-          :options="TyresChartOptions"
-          :series="typeTires"
-        ></apexchart>
-      </v-card-text>
+      <!-- ЛЕВАЯ ЧАСТЬ: Один большой график -->
+      <v-col cols="12" md="6" class="pa-2">
+        <v-card variant="outlined" style="height: 337px;" class="pa-0">
+          <apexchart
+            :key="`big-${chartKeyCounter}`"
+            type="bar"
+            height="100%"
+            width="100%"
+            :options="TyresChartOptions"
+            :series="victories"
+          ></apexchart>
+        </v-card>
+      </v-col>
 
-      <v-col cols="6">
+      <!-- ПРАВАЯ ЧАСТЬ: 4 маленьких графика -->
+      <v-col cols="12" md="6">
         <v-row no-gutters>
-          <v-col cols="6" class="pl-1 py-1">
-            <v-sheet class="pa-4" height="200" color="white" border >
-              <div>$874</div>
-            </v-sheet>
-          </v-col>
-          
-          <v-col cols="6" class="pl-2 py-1">
-            <v-sheet class="pa-4" height="200" color="white" border >
-              <div>$1283</div>
-            </v-sheet>
-          </v-col>
-          
-          <v-col cols="6" class="pl-1 py-1">
-            <v-sheet class="pa-4" height="200" color="white" border >
-              <div>$1286</div>
-            </v-sheet>
+
+          <v-col cols="6" class="pa-2">
+            <v-card variant="outlined" style="height: 160px;" class="pa-0">
+              <apexchart
+                :key="`small-1-${chartKeyCounter}`"
+                type="bar"
+                height="160"
+                width="100%"
+                :options="TyresChartOptions"
+                :series="tireWear"
+              ></apexchart>
+            </v-card>
           </v-col>
 
-          <v-col cols="6" class="pl-2 py-1">
-            <v-sheet class="pa-4" height="200" color="white" border >
-              <div>$564</div>
-            </v-sheet>
+          <v-col cols="6" class="pa-2">
+            <v-card variant="outlined" style="height: 160px;" class="pa-0">
+              <apexchart
+              :key="`small-1-${chartKeyCounter}`"
+                type="bar"
+                height="160"
+                width="100%"
+                :options="TyresChartOptions"
+                :series="spareParts"
+              ></apexchart>
+            </v-card>
           </v-col>
+
+          <v-col cols="6" class="pa-2">
+            <v-card variant="outlined" style="height: 160px;" class="pa-0">
+              <apexchart
+              :key="`small-1-${chartKeyCounter}`"
+                type="bar"
+                height="160"
+                width="100%"
+                :options="TyresChartOptions"
+                :series="fuel"
+              ></apexchart>
+            </v-card>
+          </v-col>
+
+          <v-col cols="6" class="pa-2">
+            <v-card variant="outlined" style="height: 160px;" class="pa-0">
+              <apexchart
+              :key="`small-1-${chartKeyCounter}`"
+                type="bar"
+                height="160"
+                width="100%"
+                :options="TyresChartOptions"
+                :series="bodyworkExpenses"
+              ></apexchart>
+            </v-card>
+          </v-col>
+
         </v-row>
       </v-col>
     </v-row>
@@ -224,7 +259,7 @@
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, nextTick, onMounted, onUnmounted, computed } from 'vue'
 import { useTheme } from 'vuetify'
 import type { ApexOptions } from 'apexcharts'
 
@@ -245,7 +280,6 @@ const themes: ThemeOption[] = [
   { name: 'dark', color: '#121212', icon: 'mdi-weather-night'},
   { name: 'orange-theme', color: '#FF9800', icon: 'mdi-fruit-citrus'} 
 ]
-
 
 // tables 
 interface Header {
@@ -347,8 +381,25 @@ const plants: Plants[] = [
 // end tables
 
 // toogle themes
-const setTheme = (themeName: string): void => {
+// решение проблемы с багом когда меняется тема все улетает без данного кода
+// Создаем простой счетчик для принудительного обновления графиков
+const chartKeyCounter = ref<number>(0)
+
+const setTheme = async (themeName: string): Promise<void> => {
+
+  // 1. Мгновенно меняем тему Vuetify
   themeManager.global.name.value = themeName
+  
+  // 2. Ждем, пока Vuetify полностью обновит DOM, применит все стили, 
+  // карточки встанут на свои места и их размеры стабилизируются
+  await nextTick()
+  
+  // Дополнительно даем микро-задержку в 50-100мс, чтобы браузер успел отрендерить CSS transitions
+  setTimeout(() => {
+    // 3. Пиннаем счетчик! Все графики увидят изменение ключа и перерисуются 
+    // уже в ИДЕАЛЬНО стабильном и готовом DOM-контейнере
+    chartKeyCounter.value++
+  }, 50)
 }
 
 const getIconColor = (themeName: string): string => {
@@ -357,6 +408,7 @@ const getIconColor = (themeName: string): string => {
 }
 
 
+// big panel left
 const chartOptions = computed(() => {
   const isDark = themeManager.global.current.value.dark
 
@@ -387,24 +439,89 @@ const chartOptions = computed(() => {
 })
 
 
-// big panel left
 interface SeriesData {
   name: string
   data: number[]
 }
 
-const typeTires = ref<SeriesData[]>([
+// end big panel left
+
+// =================
+
+// big stats params
+const victories = ref<SeriesData[]>([
   {
     name: 'Cash Flow',
     data: [
       1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09,
       0.34, 3.88, 13.07, 5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1, 19.8,
-      -27.03, -54.4, -47.2, -43.3, -18.6, -48.6, -41.1, -39.6, -37.6,
+      -27.03, -50.4, -47.2, -43.3, -18.6, -48.6, -41.1, -39.6, -37.6,
       -29.4, -21.4, -2.4,
     ],
   },
 ])
 
+
+// 1 stats params
+
+const tireWear = ref<SeriesData[]>([
+  {
+    name: 'Revenue Growth',
+    data: [
+      3.21, 5.44, 8.91, 11.23, 14.56, 18.22, 22.11, 25.43, 21.09, 23.45,
+      27.89, 31.42, 35.67, 39.12, 42.05, 45.18, 48.99, 52.31, 55.45, 50.12,
+      45.67, 30.21, 15.43, 8.92, -2.34, -10.56, -15.21, -8.43, 2.11, 5.67,
+      12.34, 18.91, 24.56
+    ],
+  },
+])
+
+// 2 stats params
+
+const spareParts = ref<SeriesData[]>([
+  {
+    name: 'Market Share',
+    data: [
+      -5.2, -3.15, 2.4, 8.65, 14.2, 11.8, 5.43, -1.22, -8.95, -14.3,
+      -10.2, -4.15, 3.6, 9.42, 15.1, 12.35, 6.12, -0.5, -7.8, -13.9,
+      -11.1, -5.3, 2.85, 8.9, 13.54, 10.9, 4.23, -2.1, -9.45, -15.2,
+      -8.3, -2.15, 4.4
+    ],
+  },
+])
+
+// 3 stats params
+
+const fuel = ref<SeriesData[]>([
+  {
+    name: 'Operational Expenses',
+    data: [
+      25.4, 22.1, 18.6, 12.3, 5.4, -2.1, -9.5, -15.4, -22.1, -28.4,
+      -35.2, -41.6, -38.2, -30.5, -22.4, -14.1, -5.3, 2.6, 10.4, 18.9,
+      26.5, 32.1, 28.4, 20.2, 12.5, 4.1, -3.6, -11.2, -19.4, -25.6,
+      -31.2, -36.8, -42.5
+    ],
+  },
+])
+
+// 4 stats params
+
+
+const bodyworkExpenses = ref<SeriesData[]>([
+  {
+    name: 'Net Profit',
+    data: [
+      -45.2, -41.35, -38.6, -32.15, -28.4, -22.1, -15.35, -9.2, -4.1, 2.35,
+      8.6, 14.2, 11.55, 5.3, -1.2, -8.65, -14.3, -20.1, -25.65, -31.4,
+      -36.2, -42.15, -48.4, -45.1, -39.35, -32.6, -26.4, -19.15, -12.3, -5.1,
+      1.45, 7.8, 13.25
+    ],
+  },
+])
+// ==============
+
+
+// mini widget
 const TyresChartOptions = computed<ApexOptions>(() => {
   const isDark = themeManager.global.current.value.dark
 
@@ -498,8 +615,8 @@ const TyresChartOptions = computed<ApexOptions>(() => {
     },
   }
 })
+// end mini widget 
 
-// end big panel left
 
 //   данными из API)
 interface ChartSeriesItem {
@@ -542,3 +659,9 @@ onUnmounted(() => {
   }
 })
 </script>
+
+<!-- я знаю что когда много js кода лучше делать части тех же виджетов графиков - 
+ но ради одного файла я решил так не делать ибо это долго
+ главное принцип и пример работы 
+ остальное мелочи 
+ -->
