@@ -407,58 +407,69 @@ const typeTires = ref<SeriesData[]>([
   },
 ])
 
-const TyresChartOptions = ref<ApexOptions>({
-  chart: {
-    type: 'bar',
-    height: 350,
-  },
-  plotOptions: {
-    bar: {
-      colors: {
-        ranges: [
-          {
-            from: -100,
-            to: -46,
-            color: '#F15B46',
-          },
-          {
-            from: -45,
-            to: 0,
-            color: '#FEB019',
-          },
-        ],
-      },
-      columnWidth: '80%',
+const TyresChartOptions = computed<ApexOptions>(() => {
+  const isDark = themeManager.global.current.value.dark
+
+  return {
+    chart: {
+      type: 'bar',
+      height: 350,
+      foreColor: isDark ? '#FFFFFF' : '#333333',
     },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  yaxis: {
-    title: {
-      text: 'Growth',
+    theme: {
+      mode: isDark ? 'dark' : 'light'
     },
-    labels: {
-      formatter: function (y: number) {
-        return y.toFixed(0) + '%'
+    plotOptions: {
+      bar: {
+        colors: {
+          ranges: [
+            {
+              from: -100,
+              to: -46,
+              color: '#F15B46',
+            },
+            {
+              from: -45,
+              to: 0,
+              color: '#FEB019',
+            },
+          ],
+        },
+        columnWidth: '80%',
       },
     },
-  },
-  xaxis: {
-    type: 'datetime',
-    categories: [
-      '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01',
-      '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
-      '2025-01-01', '2025-02-01', '2025-03-01', '2025-04-01', '2025-05-01',
-      '2025-06-01', '2025-07-01', '2025-08-01', '2025-09-01', '2025-10-01',
-      '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01',
-      '2026-04-01', '2026-05-01', '2026-06-01', '2026-07-01', '2026-08-01',
-      '2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01',
-    ],
-    labels: {
-      rotate: -90,
+    dataLabels: {
+      enabled: false,
     },
-  },
+    yaxis: {
+      title: {
+        text: 'Growth',
+        style: {
+          color: isDark ? '#FFFFFF' : '#333333'
+        }
+      },
+      labels: {
+        formatter: function (y: number) {
+          return y.toFixed(0) + '%'
+        },
+      },
+    },
+    xaxis: {
+      type: 'datetime',
+      categories: [
+        '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01',
+        '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
+        '2025-01-01', '2025-02-01', '2025-03-01', '2025-04-01', '2025-05-01',
+        '2025-06-01', '2025-07-01', '2025-08-01', '2025-09-01', '2025-10-01',
+        '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01',
+        '2026-04-01', '2026-05-01', '2026-06-01', '2026-07-01', '2026-08-01',
+        '2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01',
+      ],
+      labels: {
+        rotate: -90,
+      },
+    },
+  }
 })
 
 // end big panel left
