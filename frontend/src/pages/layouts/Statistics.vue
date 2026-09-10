@@ -31,15 +31,15 @@
     <div class="d-flex px-2 py-4 mt-8 mongo-box">
       <div>
         <v-icon
-          class="mdi mdi-balloon icon-ballon-custom"
+          class="mt-2 mdi mdi-balloon icon-ballon-custom"
           size="large"
           color="error"
         >
         </v-icon>
       </div>
       <div>
-        <div class="text-body-1 pt-1">Проект: панель доски статистики</div>
-        <div>Статистика по начислениям, гонкам, акциям, прогрессу</div>
+        <div class=" pt-1 font-weight-thin">Комната статистики</div>
+        <div class="font-weight-thin">здесь есть - процент побед, износ ресурсов, покрышек, рейтинг и прочее</div>
       </div>
     </div>
   </v-container>
@@ -116,7 +116,7 @@
   <v-container fluid>
     <v-card class="pa-4 mongo-box" variant="flat">
       <v-card-title class="font-weight-bold">
-        Мониторинг (Real-time)
+        Мониторинг заездов:
       </v-card-title>
       <v-card-text>
         <apexchart
@@ -129,22 +129,20 @@
     </v-card>
   </v-container>
 
+ 
+
   <v-container fluid>
-    <v-row no-gutters>
-      <v-col cols="6" class="pr-1 py-1">
-        <v-sheet class="h-100 pa-4" color="white" border >
-          <div>
-             <div>
-              <apexchart
-                type="bar"
-                height="350"
-                :options="TyresChartOptions"
-                :series="typeTires"
-              ></apexchart>
-            </div>
-          </div>
-        </v-sheet>
-      </v-col>
+     <div>статистика побед: износ шин, траты на запчасти, топливо, кузов</div>
+    <v-row no-gutters class="mongo-box">      
+
+      <v-card-text >
+        <apexchart
+          type="bar"
+          height="350"
+          :options="TyresChartOptions"
+          :series="typeTires"
+        ></apexchart>
+      </v-card-text>
 
       <v-col cols="6">
         <v-row no-gutters>
@@ -415,6 +413,34 @@ const TyresChartOptions = computed<ApexOptions>(() => {
       type: 'bar',
       height: 350,
       foreColor: isDark ? '#FFFFFF' : '#333333',
+      defaultLocale: 'ru',
+      locales: [{
+        name: 'ru',
+        options: {
+           months: [
+            'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 
+            'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+          ],
+          shortMonths: [
+            'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 
+            'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'
+          ],
+          days: [
+            'Воскресенье', 'Понедельник', 'Вторник', 'Среда', 
+            'Четверг', 'Пятница', 'Суббота'
+          ],
+          shortDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+          toolbar: {
+            download: 'Скачать SVG',
+            selection: 'Выбор',
+            selectionZoom: 'Масштаб выбора',
+            zoomIn: 'Увеличить',
+            zoomOut: 'Уменьшить',
+            pan: 'Панорамирование',
+            reset: 'Сбросить масштаб',
+          }
+        }
+      }]
     },
     theme: {
       mode: isDark ? 'dark' : 'light'
@@ -456,6 +482,7 @@ const TyresChartOptions = computed<ApexOptions>(() => {
     },
     xaxis: {
       type: 'datetime',
+    
       categories: [
         '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01',
         '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
