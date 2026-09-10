@@ -114,8 +114,7 @@
   </v-container>
 
   <v-container fluid>
-    
-    <v-card class="pa-4 mongo-box" variant="flat" >
+    <v-card class="pa-4 mongo-box" variant="flat">
       <v-card-title class="font-weight-bold">
         Мониторинг (Real-time)
       </v-card-title>
@@ -134,7 +133,16 @@
     <v-row no-gutters>
       <v-col cols="6" class="pr-1 py-1">
         <v-sheet class="h-100 pa-4" color="white" border >
-          <div>Большой блок (Слева)</div>
+          <div>
+             <div>
+              <apexchart
+                type="bar"
+                height="350"
+                :options="TyresChartOptions"
+                :series="typeTires"
+              ></apexchart>
+            </div>
+          </div>
         </v-sheet>
       </v-col>
 
@@ -220,6 +228,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useTheme } from 'vuetify'
+import type { ApexOptions } from 'apexcharts'
 
 interface ThemeOption {
   name: string
@@ -378,6 +387,81 @@ const chartOptions = computed(() => {
     }
   }
 })
+
+
+// big panel left
+interface SeriesData {
+  name: string
+  data: number[]
+}
+
+const typeTires = ref<SeriesData[]>([
+  {
+    name: 'Cash Flow',
+    data: [
+      1.45, 5.42, 5.9, -0.42, -12.6, -18.1, -18.2, -14.16, -11.1, -6.09,
+      0.34, 3.88, 13.07, 5.8, 2, 7.37, 8.1, 13.57, 15.75, 17.1, 19.8,
+      -27.03, -54.4, -47.2, -43.3, -18.6, -48.6, -41.1, -39.6, -37.6,
+      -29.4, -21.4, -2.4,
+    ],
+  },
+])
+
+const TyresChartOptions = ref<ApexOptions>({
+  chart: {
+    type: 'bar',
+    height: 350,
+  },
+  plotOptions: {
+    bar: {
+      colors: {
+        ranges: [
+          {
+            from: -100,
+            to: -46,
+            color: '#F15B46',
+          },
+          {
+            from: -45,
+            to: 0,
+            color: '#FEB019',
+          },
+        ],
+      },
+      columnWidth: '80%',
+    },
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  yaxis: {
+    title: {
+      text: 'Growth',
+    },
+    labels: {
+      formatter: function (y: number) {
+        return y.toFixed(0) + '%'
+      },
+    },
+  },
+  xaxis: {
+    type: 'datetime',
+    categories: [
+      '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01',
+      '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01',
+      '2025-01-01', '2025-02-01', '2025-03-01', '2025-04-01', '2025-05-01',
+      '2025-06-01', '2025-07-01', '2025-08-01', '2025-09-01', '2025-10-01',
+      '2025-11-01', '2025-12-01', '2026-01-01', '2026-02-01', '2026-03-01',
+      '2026-04-01', '2026-05-01', '2026-06-01', '2026-07-01', '2026-08-01',
+      '2026-09-01', '2026-10-01', '2026-11-01', '2026-12-01',
+    ],
+    labels: {
+      rotate: -90,
+    },
+  },
+})
+
+// end big panel left
 
 //   данными из API)
 interface ChartSeriesItem {
