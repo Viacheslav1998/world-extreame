@@ -6,7 +6,7 @@
         rounded="md"
         class="d-flex align-center px-4 py-2 mt-4"
       >
-        <span class="text-h6 font-weight-bold">World-<span class="text-red-darken-4">Extreame</span>.com</span>
+        <span class="text-h6 font-weight-bold">World-<span class="text-deep-orange-darken-1">Extreame</span>.com</span>
         <v-spacer />
         <v-btn to="/" variant="text">Главная</v-btn>
         <v-btn to="/stat" variant="text">Статистика</v-btn>
@@ -79,7 +79,7 @@
           </v-col>
           <v-col cols="auto">
             <v-sheet elevation="1" class="my-10 mx-2 pa-3" color="blue-grey">
-              <v-btn size="x-large" color="red-darken-4" style="margin-top: 3.5px;">
+              <v-btn size="x-large" color="deep-orange-darken-1" style="margin-top: 3.5px;">
                 Найти ...
               </v-btn>
             </v-sheet>
@@ -101,7 +101,7 @@
                 <p>Все новости</p>
               </div>
               <v-chip 
-                color="red"
+                color="deep-orange-darken-1"
                 variant="flat"
               >
                 3,045
@@ -117,7 +117,7 @@
                 <p>Всего поставок</p>
               </div>
               <v-chip 
-                color="red"
+                color="deep-orange-darken-1"
                 variant="flat"
               >
                 352
@@ -133,7 +133,7 @@
                 <p>места</p>
               </div>
               <v-chip 
-                color="red"
+                color="deep-orange-darken-1"
                 variant="flat"
               >
                 76
@@ -149,7 +149,7 @@
                 <p>Rally-Cross</p>
               </div>
               <v-chip 
-                color="red"
+                color="deep-orange-darken-1"
                 variant="flat"
               >
                 736
@@ -165,7 +165,7 @@
                 <p>Условия</p>
               </div>
               <v-chip 
-                color="red"
+                color="deep-orange-darken-1"
                 variant="flat"
               >
                 276

@@ -31,9 +31,9 @@
     <div class="d-flex px-2 py-4 mt-8 mongo-box">
       <div>
         <v-icon
-          class="mt-2 mdi mdi-balloon icon-ballon-custom"
+          class="mt-2 mdi mdi-semantic-web icon-ballon-custom"
           size="large"
-          color="error"
+          color="grey"
         >
         </v-icon>
       </div>
@@ -225,6 +225,9 @@
       </div>
       <div class="ma-2 font-weight-thin">
         <p>Apache-Host-Panel</p>
+      </div>
+      <div class="ma-2 font-weight-thin">
+        <p>Special Statistics Office</p>
       </div>
     </div>
   </v-container>
