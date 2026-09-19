@@ -6,6 +6,7 @@ import Single from '../pages/Single.vue'
 import Main from '../pages/layouts/Main.vue'
 import Statistics from '../pages/layouts/Statistics.vue'
 import NotFound from '../pages/layouts/NotFound.vue'
+import Register from '../pages/layouts/Register.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -32,11 +33,17 @@ const routes: Array<RouteRecordRaw> = [
     meta: { hideLayout: true }
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: Register,
+    meta: { hideLayout: true }
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
     component: NotFound,
     meta: { hideLayout: true }
-  }
+  },
 ]
 
 const router = createRouter({
