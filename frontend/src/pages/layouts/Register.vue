@@ -28,6 +28,17 @@
             />
           </div>
 
+          <div class="form-group">
+            <label for="reg-password">выбери роль: [<span style="color: grey">user, ghost, admin</span>]</label>
+            <input 
+              id="reg-password"
+              v-model="registerData.role" 
+              type="text" 
+              placeholder="fff"
+              required 
+            />
+          </div>
+
           <button type="submit" class="btn btn-reg" :disabled="loading">
             Зарегистрироваться
           </button>
@@ -73,15 +84,14 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-
-import type { AuthPayload } from './types' 
+import type { AuthPayload } from '@/types/auth'
 
 const loading = ref<boolean>(false)
 
-
 const registerData = reactive<AuthPayload>({
   email: '',
-  password: ''
+  password: '',
+  role: 'user'
 })
 
 
@@ -93,7 +103,7 @@ const loginData = reactive<AuthPayload>({
 const handleRegister = async (): Promise<void> => {
   loading.value = true
   try {
-    console.log('TS: Регистрируем пользователя:', registerData)
+    console.log('Регистрируем пользователя:', registerData)
     await new Promise((resolve) => setTimeout(resolve, 1200))
     alert('Успешная регистрация!')
   } catch (error) {
@@ -104,16 +114,19 @@ const handleRegister = async (): Promise<void> => {
 }
 
 const handleLogin = async (): Promise<void> => {
+  if (!loginData.password || loginData.password.length < 6) {
+    alert('Пароль должен быть не менее 6 символов!')
+    return
+  }
+
   loading.value = true
   try {
-    console.log('TS: Вход в систему:', loginData)
-    await new Promise((resolve) => setTimeout(resolve, 1200))
-    alert('Добро пожаловать обратно!')
-  } catch (error) {
-    console.error(error)
+    console.log('отправка на сервер: ', loginData)
+    // request db
   } finally {
     loading.value = false
   }
+
 }
 </script>
 
@@ -160,7 +173,7 @@ h2, h3 {
 }
 
 .subtitle {
-  color: #F4511E;
+  color: #d16342;
   font-size: 0.9rem;
   text-align: center;
   margin: 0.4rem 0 1.5rem 0;
