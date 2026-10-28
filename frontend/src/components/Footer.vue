@@ -110,7 +110,7 @@ interface MenuColumn {
   items: string[]
 }
 
-type ActionType = 'admin' | 'toggle-page'
+type ActionType = 'admin' | 'toggle-page' | 'enter'
 
 interface NavItem {
   icon: string
@@ -122,8 +122,11 @@ const route = useRoute()
 
 const navItems = ref<NavItem[]>([
   { icon: '/news/settings.png', action: 'admin' },
-  { icon: '/news/back.png', action: 'toggle-page' } 
+  { icon: '/news/back.png', action: 'toggle-page' }, 
+  { icon: '/news/enter.png', action: 'enter' },
 ])
+
+
 
 // current page
 const currentPage = computed(() => route.path === '/')
@@ -131,10 +134,11 @@ const currentPage = computed(() => route.path === '/')
 // alt title / dynamic change
 const getTooltipText = (action: ActionType): string => {
   if (action === 'admin') return 'Админ-панель'
+  if (action === 'enter') return 'Регистрация/вход'
   return currentPage.value ? 'к прошлой новости' : 'На главную'
 }
 
-// fast navigation
+// fast navigation  
 const handleAction = (actionType: ActionType): void => {
   if (actionType === 'admin') {
     router.push('/admin')
@@ -145,6 +149,9 @@ const handleAction = (actionType: ActionType): void => {
     else {
       router.push('/single')
     }
+  } else if (actionType === 'enter') {
+    console.log(123 + "rederect");
+    router.push('/register')
   }
 }
 
