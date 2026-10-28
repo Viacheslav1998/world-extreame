@@ -1,18 +1,21 @@
     {
       "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
-        "moduleResolution": "node", // Or "bundler" for Vite
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "noEmit": true,
         "strict": true,
         "jsx": "preserve",
         "sourceMap": true,
         "resolveJsonModule": true,
+        "isolatedModules": true,  
+        "allowImportingTsExtensions": true,
         "esModuleInterop": true,
+        "skipLibCheck": true,
         "lib": ["esnext", "dom"],
         "types": ["node", "vuetify"], // Ensure "vuetify" is included
-        "baseUrl": ".",
         "paths": {
-          "@/*": ["src/*"]
+          "@/*": ["./src/*"]
         }
       },
       "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
