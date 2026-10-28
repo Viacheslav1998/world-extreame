@@ -126,8 +126,6 @@ const navItems = ref<NavItem[]>([
   { icon: '/news/enter.png', action: 'enter' },
 ])
 
-
-
 // current page
 const currentPage = computed(() => route.path === '/')
 
@@ -140,18 +138,22 @@ const getTooltipText = (action: ActionType): string => {
 
 // fast navigation  
 const handleAction = (actionType: ActionType): void => {
-  if (actionType === 'admin') {
-    router.push('/admin')
-  } else if (actionType === 'toggle-page') {
-    if (route.path === '/single') {
-      router.push('/')
-    } 
-    else {
-      router.push('/single')
-    }
-  } else if (actionType === 'enter') {
-    console.log(123 + "rederect");
-    router.push('/register')
+  switch(actionType) {
+    case 'admin':
+      router.push('/admid');
+      break;
+
+      case 'toggle-page':
+        if (route.path === '/single') {
+          router.push('/')
+        } else {
+          router.push('/single')
+        }
+      break;
+
+    case 'enter':
+      router.push('/register')
+      break;
   }
 }
 
