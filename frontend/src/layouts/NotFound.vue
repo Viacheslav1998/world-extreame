@@ -1,5 +1,5 @@
 <template>
- <v-app >
+  <v-app>
     <v-main
       style="background-image: url('/notfound/404.jpg');"
       class="d-flex align-center error-page">

@@ -140,7 +140,7 @@ const getTooltipText = (action: ActionType): string => {
 const handleAction = (actionType: ActionType): void => {
   switch(actionType) {
     case 'admin':
-      router.push('/admid');
+      router.push('/adm/main');
       break;
 
       case 'toggle-page':

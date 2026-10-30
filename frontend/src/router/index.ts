@@ -3,10 +3,11 @@ import type { RouteRecordRaw } from 'vue-router'
 
 import Home from '../pages/Home.vue'
 import Single from '../pages/Single.vue'
-import Main from '../pages/layouts/Main.vue'
-import Statistics from '../pages/layouts/Statistics.vue'
-import NotFound from '../pages/layouts/NotFound.vue'
-import Register from '../pages/layouts/Register.vue'
+import Main from '../layouts/Main.vue'
+import Statistics from '../layouts/Statistics.vue'
+import NotFound from '../layouts/NotFound.vue'
+import Register from '../layouts/Register.vue'
+import Admin from '../layouts/Admin.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,6 +37,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/register',
     name: 'Register',
     component: Register,
+    meta: { hideLayout: true }
+  },
+  {
+    path: '/adm/admin',
+    name: 'Admin',
+    component: Admin,
     meta: { hideLayout: true }
   },
   {
