@@ -1,4 +1,7 @@
 <template>
+  <div>
+    просто какой то сайтбар
+  </div>
 </template>
 
 <style scoped>
