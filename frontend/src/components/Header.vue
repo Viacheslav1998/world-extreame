@@ -18,7 +18,7 @@
     </v-container>
 
     <v-container class="text-center">
-      <v-row no-gutters justify="center" style="height: 160px;">
+      <v-row no-gutters justify="center" style="height: 150px;">
         <v-col cols="12" sm="8" align-self="center">
           <v-sheet class="pa-4 rounded" style="background-color: rgba(255, 255, 255, 0.85);">
             <h1 class="text-h5 font-weight-bold text-grey-darken-4">
@@ -34,9 +34,9 @@
 
     <!-- place search -->
     <v-container>
-      <v-sheet class="pa-4 rounded" style="background-color: rgba(255, 255, 255, 0.8);">
-        <v-row align="center" dense>
-          <v-col cols="12" md="4">
+      <v-sheet class="rounded bg-transparent">
+        <v-row justify="center" dense>
+          <v-col cols="12" md="2" class="d-flex align-center">
             <v-text-field
               label="Что надо искать?"
               color="orange"
@@ -125,7 +125,7 @@ const stats: StatItem[] = [
 
 <style scoped>
 .header {
-  min-height: 800px;
+  min-height: 300px;
   background-image: url('/main/mountain.jpg');
   background-position: center;
   background-size: cover;
