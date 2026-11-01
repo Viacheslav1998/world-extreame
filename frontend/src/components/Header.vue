@@ -1,193 +1,138 @@
 <template>
- <div class="header">
+  <div class="header">
+    <!-- navi panel -->
     <v-container>
       <v-sheet
         elevation="3"
         rounded="md"
         class="d-flex align-center px-4 py-2 mt-4"
       >
-        <span class="text-h6 font-weight-bold">World-<span class="text-deep-orange-darken-1">Extreame</span>.com</span>
+        <span class="text-h6 font-weight-bold">
+          World-<span class="text-deep-orange-darken-1">Extreame</span>.com
+        </span>
         <v-spacer />
         <v-btn to="/" variant="text">Главная</v-btn>
         <v-btn to="/stat" variant="text">Статистика</v-btn>
         <v-btn to="/contact" variant="text">Контакты</v-btn>
       </v-sheet>
     </v-container>
+
     <v-container class="text-center">
-      <v-row 
-        no-gutters
-        style="height: 200px;"
-      >
-        <v-col align-self="center" style="background-color: rgba(999, 999, 999, 0.7);">
-          <v-sheet 
-            color="white"
-          >
-            <h1 class="text-h5 font-weight-bold mt-4" style="color:rgba(000, 000, 000, 0.8)">Многофункциональный информационный портал</h1>
-            <p class="text-h6 text-black">
-               | магазин | новости | нужные вещи | запчасти | мерч |
+      <v-row no-gutters justify="center" style="height: 160px;">
+        <v-col cols="12" sm="8" align-self="center">
+          <v-sheet class="pa-4 rounded" style="background-color: rgba(255, 255, 255, 0.85);">
+            <h1 class="text-h5 font-weight-bold text-grey-darken-4">
+              Многофункциональный информационный портал
+            </h1>
+            <p class="text-subtitle-1 text-black mt-1">
+              | магазин | новости | нужные вещи | запчасти | мерч |
             </p>
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- place search -->
     <v-container>
-      <v-sheet
-        color="rgba(999, 999, 999, 0.7)"
-      >
-        <v-row no-gutters>
-          <v-col color="indigo">
-            <v-sheet 
-              color="indigo"
-              elevation="1"
-              class="my-10 mx-2 pa-3"
-            >
-              <v-text-field
-                label="Что надо искать?"
-                color="orange"
-                hide-details
-              >
-              </v-text-field>
-            </v-sheet>
+      <v-sheet class="pa-4 rounded" style="background-color: rgba(255, 255, 255, 0.8);">
+        <v-row align="center" dense>
+          <v-col cols="12" md="4">
+            <v-text-field
+              label="Что надо искать?"
+              color="orange"
+              variant="outlined"
+              bg-color="white"
+              hide-details
+            ></v-text-field>
           </v-col>
-           <v-col color="indigo">
-            <v-sheet 
-              color="indigo"
-              elevation="1"
-              class="my-10 mx-2 pa-3"
-            >
-              <v-text-field
-                label="Место"
-                color="orange"
-                hide-details
-              >
-              </v-text-field>
-            </v-sheet>
+          
+          <v-col cols="12" md="3">
+            <v-text-field
+              label="Место"
+              color="orange"
+              variant="outlined"
+              bg-color="white"
+              hide-details
+            ></v-text-field>
           </v-col>
-           <v-col color="indigo">
-            <v-sheet 
-              color="indigo"
-              elevation="1"
-              class="my-10 mx-2 pa-3"
-            >
-              <v-text-field
-                label="Категория"
-                color="orange"
-                hide-details
-              >
-              </v-text-field>
-            </v-sheet>
+
+          <v-col cols="12" md="3">
+            <v-text-field
+              label="Категория"
+              color="orange"
+              variant="outlined"
+              bg-color="white"
+              hide-details
+            ></v-text-field>
           </v-col>
-          <v-col cols="auto">
-            <v-sheet elevation="1" class="my-10 mx-2 pa-3" color="blue-grey">
-              <v-btn size="x-large" color="deep-orange-darken-1" style="margin-top: 3.5px;">
-                Найти ...
-              </v-btn>
-            </v-sheet>
+
+          <v-col cols="12" md="2" class="d-flex align-center">
+            <v-btn block size="large" color="deep-orange-darken-1" height="56">
+              Найти...
+            </v-btn>
           </v-col>
         </v-row>
       </v-sheet>
     </v-container>
+
     <br>
+
+    <!-- statisticss / icons -->
     <v-container>
-      <v-row
-        class="rounded"
-        no-gutters
-      >
-        <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
-            <div class="text-center">
-              <img src="/icons/bike.png" alt="ico">
-              <div class="pb-2">
-                <p>Все новости</p>
-              </div>
-              <v-chip 
-                color="deep-orange-darken-1"
-                variant="flat"
-              >
-                3,045
-              </v-chip>
+      <v-row class="rounded" justify="center" dense>
+        <v-col 
+          v-for="(stat, index) in stats" 
+          :key="index"
+          cols="12"
+          sm="4"
+          md="2"
+        >
+          <v-sheet class="pa-3 text-center custom-bg-rgba-w rounded elevation-1">
+            <img :src="stat.icon" alt="ico" width="32" height="32" class="mb-1">
+            <div class="pb-1 text-body-2 font-weight-medium">
+              <p class="mb-0">{{ stat.title }}</p>
             </div>
-          </v-sheet>
-        </v-col>
-         <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
-            <div class="text-center">
-              <img src="/icons/frontal-truck.png" alt="ico">
-              <div class="pb-2">
-                <p>Всего поставок</p>
-              </div>
-              <v-chip 
-                color="deep-orange-darken-1"
-                variant="flat"
-              >
-                352
-              </v-chip>
-            </div>
-          </v-sheet>
-        </v-col>
-         <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
-            <div class="text-center">
-              <img src="/icons/mountain.png" alt="ico">
-              <div class="pb-2">
-                <p>места</p>
-              </div>
-              <v-chip 
-                color="deep-orange-darken-1"
-                variant="flat"
-              >
-                76
-              </v-chip>
-            </div>
-          </v-sheet>
-        </v-col>
-         <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
-            <div class="text-center">
-              <img src="/icons/parking.png" alt="ico">
-              <div class="pb-2">
-                <p>Rally-Cross</p>
-              </div>
-              <v-chip 
-                color="deep-orange-darken-1"
-                variant="flat"
-              >
-                736
-              </v-chip>
-            </div>
-          </v-sheet>
-        </v-col>
-         <v-col class="p-2 m-5">
-          <v-sheet class="pa-2 ma-2 custom-bg-rbga-w rounded">
-            <div class="text-center">
-              <img src="/icons/thunderstorm.png" alt="ico">
-              <div class="pb-2">
-                <p>Условия</p>
-              </div>
-              <v-chip 
-                color="deep-orange-darken-1"
-                variant="flat"
-              >
-                276
-              </v-chip>
-            </div>
+            <v-chip 
+              color="deep-orange-darken-1"
+              variant="flat"
+              size="small"
+            >
+              {{ stat.value }}
+            </v-chip>
           </v-sheet>
         </v-col>
       </v-row>
     </v-container>
+    
   </div>
- 
 </template>
+
+<script setup lang="ts">
+interface StatItem {
+  icon: string
+  title: string
+  value: string
+}
+
+const stats: StatItem[] = [
+  { icon: '/icons/bike.png', title: 'Все новости', value: '3,045' },
+  { icon: '/icons/frontal-truck.png', title: 'Всего поставок', value: '352' },
+  { icon: '/icons/mountain.png', title: 'Места', value: '76' },
+  { icon: '/icons/parking.png', title: 'Rally-Cross', value: '736' },
+  { icon: '/icons/thunderstorm.png', title: 'Условия', value: '276' }
+]
+</script>
 
 <style scoped>
 .header {
-  height: 800px;
+  min-height: 800px;
   background-image: url('/main/mountain.jpg');
-  background-position: 0 -70px;
+  background-position: center;
   background-size: cover;
+  padding-bottom: 40px;
 }
 
-.custom-bg-rbga-w {
-  background-color: rgba(238, 238, 238, 0.856);
+.custom-bg-rgba-w {
+  background-color: rgba(238, 238, 238, 0.9);
 }
 </style>

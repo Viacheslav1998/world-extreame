@@ -1,6 +1,6 @@
 <template>
   <v-footer class="d-flex flex-column p-0" color="indigo-lighten-1">
-    <!-- Блок быстрой навигации -->
+    <!-- faster navi -->
     <div class="w-100 bg-indigo-lighten-2 d-flex align-center px-4 py-2">
       <div class="py-2 pl-2"> 
         <span class="font-weight-bold">быстрая навигация:</span> 
@@ -28,7 +28,7 @@
       </v-btn>
     </div>
 
-    <!-- Основное содержимое футера -->
+    <!-- main content footer -->
     <div class="text-center d-flex flex-column ga-2 py-4 w-100">
       <div class="d-flex ga-3 justify-center">
         <v-btn
