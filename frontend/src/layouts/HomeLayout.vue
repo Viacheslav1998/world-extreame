@@ -1,13 +1,15 @@
 <template>
- <Header />
+  <v-app>
+   <Header />
 
-  <v-layout>
-    <v-main>
-      <slot />
-    </v-main>
-  </v-layout>
+    <v-layout>
+      <v-main>
+        <slot />
+      </v-main>
+    </v-layout>
 
-  <Footer />
+    <Footer />
+  </v-app>
 </template>
 
 <script setup lang="ts">

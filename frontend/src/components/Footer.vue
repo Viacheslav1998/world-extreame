@@ -1,11 +1,12 @@
 <template>
-  <v-container>
-    <div class="bg-indigo-lighten-2 d-flex align-center px-4 py-2">
+  <v-footer class="d-flex flex-column p-0" color="indigo-lighten-1">
+    <!-- Блок быстрой навигации -->
+    <div class="w-100 bg-indigo-lighten-2 d-flex align-center px-4 py-2">
       <div class="py-2 pl-2"> 
         <span class="font-weight-bold">быстрая навигация:</span> 
       </div>
       <v-spacer></v-spacer>
-      <!-- btn faster navi -->   
+      
       <v-btn
         v-for="(item, index) in navItems"
         :key="index"
@@ -19,58 +20,62 @@
           :src="item.icon"
           width="12"
           height="12"
+          alt="icon"
         />
-        <v-tooltip
-          activator="parent" location="top"
-        >
-        {{ getTooltipText(item.action) }}
+        <v-tooltip activator="parent" location="top">
+          {{ getTooltipText(item.action) }}
         </v-tooltip>
       </v-btn>
-      <!-- end btn navi -->
-    </div>
-  </v-container>
-  <v-footer class="text-center d-flex flex-column ga-2 py-4" color="indigo-lighten-1">
-    <div class="d-flex ga-3">
-      <v-btn
-        v-for="icon in icons"
-        :key="icon.name"
-        :icon="icon.name"
-        density="comfortable"
-        variant="text"
-      >
-      </v-btn>
     </div>
 
-    <v-divider class="my-2" thickness="2" width="50"></v-divider>
+    <!-- Основное содержимое футера -->
+    <div class="text-center d-flex flex-column ga-2 py-4 w-100">
+      <div class="d-flex ga-3 justify-center">
+        <v-btn
+          v-for="icon in icons"
+          :key="icon.name"
+          :icon="icon.name"
+          density="comfortable"
+          variant="text"
+        ></v-btn>
+      </div>
 
-    <div class="text-caption font-weight-regular opacity-90">
-     Международный чемпионат по разным экстремальным дисциплинам
-			<br>
-       новости - сообщество - снаряжение - партнеры
-       <br>
+      <v-divider class="my-2 mx-auto" thickness="2" width="50"></v-divider>
+
+      <div class="text-caption font-weight-regular opacity-95">
+        Международный чемпионат по разным экстремальным дисциплинам
+        <br>
+        новости - сообщество - снаряжение - партнеры
+        <br>
         Казахстан - Греция - Италия 
-    </div>
-    <v-divider class="my-2" thickness="2" width="50"></v-divider>
-    <div class="w-100 px-4">
-      <v-row justify="space-around">
-        <v-col
-          v-for="column in MenuColumns"
-          :key="column.title"
-          cols="12"
-          sm="2"
-          class="text-left"
-        >
-          <h4 class="text-white mb-2">{{ column.title }}</h4>
-          <div v-for="item in column.items" :key="item" class="mb-1">
-            <a href="#" class="custom-line-menu">{{ item }}</a>
-          </div>
-        </v-col>
-      </v-row>
-    </div>
-    <v-divider thickness="2" width="50"></v-divider>
-    <div>
-       <span class="text-red-accent-1 font-weight-bold">{{ new Date().getFullYear() }}. </span><span>Все права сохранены.</span><br><br>
-      <span class="text-h1 font-weight-bold">World-<span class="text-red-accent-1">Extreame</span>.com</span>
+      </div>
+
+      <v-divider class="my-2 mx-auto" thickness="2" width="50"></v-divider>
+
+      <div class="w-100 px-4">
+        <v-row justify="space-around">
+          <v-col
+            v-for="column in MenuColumns"
+            :key="column.title"
+            cols="12"
+            sm="2"
+            class="text-left"
+          >
+            <h4 class="text-white mb-2">{{ column.title }}</h4>
+            <div v-for="item in column.items" :key="item" class="mb-1">
+              <a href="#" class="custom-line-menu">{{ item }}</a>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
+
+      <v-divider class="my-2 mx-auto" thickness="2" width="50"></v-divider>
+
+      <div>
+        <span class="text-red-accent-1 font-weight-bold">{{ new Date().getFullYear() }}. </span>
+        <span>Все права сохранены.</span><br><br>
+        <span class="text-h4 font-weight-bold">World-<span class="text-red-accent-1">Extreame</span>.com</span>
+      </div>
     </div>
   </v-footer>
 </template>
