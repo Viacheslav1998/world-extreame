@@ -1,11 +1,11 @@
 <template>
-  <!-- static SFC | don`t dynamic theme! -->
- <v-app>
+  <v-app>
     <v-main class="d-flex align-center">
       <v-container fluid>
         <div class="text-button text-grey-darken-1 font-weight-bold pb-2">
           Навигация по сайту и сервисы
         </div>
+        
         <v-row justify="center">
           <v-col cols="12" md="9">
             <v-row>
@@ -41,6 +41,7 @@
               </v-col>
             </v-row>
           </v-col>
+          
           <v-col cols="12" md="3" class="d-flex justify-center justify-md-start">
             <v-date-picker
               class="ma-2 text-grey-darken-1 w-100"
@@ -58,9 +59,9 @@
 </template>
 
 <style scoped> 
- .card-item {
-    flex: 1 1 0%;
- }
+.card-item {
+  flex: 1 1 0%;
+}
 </style>
 
 <script setup lang="ts">
@@ -94,7 +95,6 @@ const optionsCards = ref<OptionsCard[][]>([
       disabled: false
     },
   ],
-  //
   [
     {
       id: 3,
@@ -113,7 +113,6 @@ const optionsCards = ref<OptionsCard[][]>([
       disabled: true
     },
   ],
-  //
   [
     {
       id: 5,
@@ -134,17 +133,17 @@ const optionsCards = ref<OptionsCard[][]>([
   ]
 ]);
 
-const date = ref<Date>(new Date())
+const date = ref<Date>(new Date());
 
-const minDate = new Date('2020-00-00');
-const maxDate = new Date('2030-00-00');
+const minDate = new Date('2020-01-01');
+const maxDate = new Date('2030-12-31');
 
-const allowedDates = (val: unknown): boolean => {
-  if (val instanceof Date) {
-    const day = val.getDay();
+const allowedDates = (val: any): boolean => {
+  const d = new Date(val);
+  if (!isNaN(d.getTime())) {
+    const day = d.getDay();
     return day !== 0 && day !== 6;
   }
   return false;
 };
 </script>
-

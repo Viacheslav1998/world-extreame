@@ -1,21 +1,39 @@
 <template>
   <div class="header">
     <!-- navi panel -->
-    <v-container>
-      <v-sheet
-        elevation="3"
-        rounded="md"
-        class="d-flex align-center px-4 py-2 mt-4"
-      >
-        <span class="text-h6 font-weight-bold">
-          World-<span class="text-deep-orange-darken-1">Extreame</span>.com
-        </span>
-        <v-spacer />
+  <v-container>
+    <v-sheet
+      elevation="3"
+      rounded="md"
+      class="d-flex align-center px-4 py-2 mt-4"
+    >
+      <span class="text-subtitle-1 text-sm-h6 font-weight-bold text-truncate">
+        World-<span class="text-deep-orange-darken-1">Extreame</span>.com
+      </span>
+
+      <v-spacer />
+
+      <div class="d-none d-sm-flex align-center ga-1">
         <v-btn to="/" variant="text">Главная</v-btn>
         <v-btn to="/stat" variant="text">Статистика</v-btn>
         <v-btn to="/contact" variant="text">Контакты</v-btn>
-      </v-sheet>
-    </v-container>
+      </div>
+
+      <div class="d-flex d-sm-none">
+        <v-menu location="bottom end">
+          <template #activator="{ props }">
+            <v-btn icon="mdi-menu" variant="text" v-bind="props"></v-btn>
+          </template>
+          
+          <v-list density="compact" class="mt-2">
+            <v-list-item to="/" title="Главная" prepend-icon="mdi-home"></v-list-item>
+            <v-list-item to="/stat" title="Статистика" prepend-icon="mdi-chart-bar"></v-list-item>
+            <v-list-item to="/contact" title="Контакты" prepend-icon="mdi-email"></v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+    </v-sheet>
+  </v-container>
 
     <v-container class="text-center">
       <v-row no-gutters justify="center" style="height: 150px;">
