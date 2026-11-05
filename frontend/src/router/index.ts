@@ -1,14 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
 
-// import Home from '../pages/Home.vue'
-// import Single from '../pages/Single.vue'
-// import Main from '../layouts/Main.vue'
-// import Statistics from '../layouts/Statistics.vue'
-// import NotFound from '../layouts/NotFound.vue'
-// import Register from '../layouts/Register.vue'
-// import Admin from '../layouts/Admin.vue'
-
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
@@ -30,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     component: () => import('../views/HomeView.vue'),
     meta: { layout: 'home' }
+  },
+  {
+    path: '/terms',
+    component: () => import('../views/TermsView.vue'),
+    meta: {layout: 'terms'}
   },
   // {
   //   path: '/register',
