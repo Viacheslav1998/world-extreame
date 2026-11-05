@@ -1,5 +1,4 @@
 <template>
-  <v-app>
     <v-main class="d-flex align-center">
       <v-container fluid>
         <div class="text-button text-grey-darken-1 font-weight-bold pb-2">
@@ -55,7 +54,6 @@
         </v-row>
       </v-container>
     </v-main>
-  </v-app>
 </template>
 
 <style scoped> 
