@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/TermsView.vue'),
     meta: {layout: 'terms'}
   },
+  {
+    path: '/privacy-policy',
+    component: () => import('../views/PrivacyPolicyView.vue'),
+    meta: {layout: 'privacyPolicy'}
+  }
   // {
   //   path: '/register',
   //   name: 'Register',
