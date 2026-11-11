@@ -15,10 +15,14 @@
           </div>
     
           <div class="d-flex ga-2">
-            <v-btn variant="text" density="comfortable">Главная</v-btn>
-            <v-btn variant="text" density="comfortable">все новости</v-btn>
-            <v-btn variant="text" density="comfortable">назад</v-btn>
-          </div>
+          <v-btn to="/" variant="text" density="comfortable">Главная</v-btn>
+          <v-btn to="/home" variant="text" density="comfortable">все новости</v-btn>
+          <v-btn 
+            variant="text"
+            density="comfortable"
+            @click="goBack"
+          >назад</v-btn>
+        </div>
         </div>
       </v-img>
     </v-sheet>
@@ -165,5 +169,11 @@
 </style>
 
 <script setup lang="ts">
-// router
+import {useRouter} from 'vue-router'
+
+const router = useRouter()
+
+const goBack = () => {
+  router.back()
+}
 </script>
