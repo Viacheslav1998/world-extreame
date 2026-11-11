@@ -62,13 +62,24 @@
             class="text-left"
           >
             <h4 class="text-white mb-2">{{ column.title }}</h4>
-            <div v-for="item in column.items" :key="item" class="mb-1">
-              <a href="#" class="custom-line-menu">{{ item }}</a>
+            
+            <div class="d-flex flex-column align-start ga-1">
+            <v-btn
+                v-for="item in column.items"
+                :key="item.title"
+                :to="item.to"
+                variant="text"
+                density="compact"
+                height="auto"
+                :ripple="false"
+                class="pa-0 pb-2 ma-0 min-w-0 justify-start text-body-2 font-weight-regular  text-none custom-line-menu"
+              >
+                {{ item.title }}
+              </v-btn>
             </div>
           </v-col>
         </v-row>
       </div>
-
       <v-divider class="my-2 mx-auto" thickness="2" width="50"></v-divider>
 
       <div>
@@ -81,25 +92,7 @@
 </template>
 
 <style>
-.custom-list-none {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-.custom-list li {
-  text-align: left;
-}
 
-.custom-line-menu {
-  font-size: 13px;
-  color: wheat;
-  text-decoration: none;
-}
-
-.custom-line-menu:hover {
-  color: #FF8A80;
-  font-weight: bold;
-}
 </style>
 
 <script setup lang="ts">
@@ -110,10 +103,16 @@ interface Icon {
   name: string
 }
 
-interface MenuColumn {
-  title: string, 
-  items: string[]
+interface MenuItem {
+  title: string,
+  to: string
 }
+
+interface MenuColumn {
+  title: string,
+  items: MenuItem[]
+}
+
 
 type ActionType = 'admin' | 'toggle-page' | 'enter'
 
@@ -172,23 +171,42 @@ const icons: Icon[] = [
 const MenuColumns: MenuColumn[] = [
   {
     title: 'Партнеры',
-    items: ['KSW7', 'WebStrom', 'Kikdown', 'GameGround']
+    items: [
+      { title: 'KSW7', to: '/partners/ksw7' },
+      { title: 'WebStrom', to: '/partners/webstrom' },
+      { title: 'Kikdown', to: '/partners/kikdown' },
+      { title: 'GameGround', to: '/partners/gameground' }
+    ]
   },
   {
     title: 'Компания',
-    items: ['О нас', 'Вакансии', 'Контакты'] 
+    items: [
+      { title: 'О нас', to: '/about' },
+      { title: 'Вакансии', to: '/jobs' },
+      { title: 'Контакты', to: '/contacts' }
+    ]
   },
   {
     title: 'Разработчики',
-    items: ['SilentStrom', 'Ak4ella']
+    items: [
+      { title: 'SilentStrom', to: '/devs/silentstrom' },
+      { title: 'Ak4ella', to: '/devs/ak4ella' }
+    ]
   },
   {
     title: 'Магазины',
-    items: ['Bclcross', 'TGready', 'Adventures']
+    items: [
+      { title: 'Bclcross', to: '/shops/bclcross' },
+      { title: 'TGready', to: '/shops/tgready' },
+      { title: 'Adventures', to: '/shops/adventures' }
+    ]
   },
   {
     title: 'Документы',
-    items: ['Политика', 'Оферта']
+    items: [
+      { title: 'Политика', to: '/policy' },
+      { title: 'Условия использования', to: '/privacy-policy' }
+    ]
   }
 ]
 
