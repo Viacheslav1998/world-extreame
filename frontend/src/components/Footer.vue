@@ -204,8 +204,8 @@ const MenuColumns: MenuColumn[] = [
   {
     title: 'Документы',
     items: [
-      { title: 'Политика', to: '/policy' },
-      { title: 'Условия использования', to: '/privacy-policy' }
+      { title: 'Политика', to: '/privacy-policy' },
+      { title: 'Условия использования', to: '/terms' }
     ]
   }
 ]

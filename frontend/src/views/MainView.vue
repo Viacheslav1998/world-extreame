@@ -78,8 +78,8 @@ const optionsCards = ref<OptionsCard[][]>([
   [
     {
       id: 1,
-      link: '/',
-      title: 'Главные новости спорта',  
+      link: '/home',
+      title: 'Все новости',  
       image: '/navi/m6.jpg',
       color: 'bg-purple',
       disabled: false

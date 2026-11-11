@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/privacy-policy',
     component: () => import('../views/PrivacyPolicyView.vue'),
     meta: {layout: 'privacyPolicy'}
-  }
+  },
   // {
   //   path: '/register',
   //   name: 'Register',
@@ -45,12 +45,11 @@ const routes: Array<RouteRecordRaw> = [
   //   component: Admin,
   //   meta: { hideLayout: true }
   // },
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   name: 'NotFound',
-  //   component: NotFound,
-  //   meta: { hideLayout: true }
-  // },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/NotFoundView.vue'),
+    meta: {layout: 'notFound'}
+  },
 ]
 
 const router = createRouter({
