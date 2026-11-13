@@ -14,10 +14,12 @@ const route = useRoute();
 const layouts = {
   main: defineAsyncComponent(() => import('./layouts/MainLayout.vue')),
   home: defineAsyncComponent(() => import('./layouts/HomeLayout.vue')),
+  privacyPolicy: defineAsyncComponent(() => import('./layouts/PrivacyPolicyLayout.vue')),
+  terms: defineAsyncComponent(() => import('./layouts/TermsLayouts.vue')),
   admin: defineAsyncComponent(() => import('./layouts/Admin.vue')),
-  notFound: defineAsyncComponent(() => import('./layouts/NotFound.vue')),
-  register: defineAsyncComponent(() => import('./layouts/Register.vue')),
-  statistic: defineAsyncComponent(() => import('./layouts/Statistics.vue')),
+  notFound: defineAsyncComponent(() => import('./layouts/NotFoundLayout.vue')),
+  register: defineAsyncComponent(() => import('./layouts/RegisterLayout.vue')),
+  statistic: defineAsyncComponent(() => import('./layouts/StatisticLayout.vue')),
   user: defineAsyncComponent(() => import('./layouts/User.vue'))
 }
 

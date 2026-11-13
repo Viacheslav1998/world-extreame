@@ -148,10 +148,10 @@ const handleAction = (actionType: ActionType): void => {
       break;
 
       case 'toggle-page':
-        if (route.path === '/single') {
+        if (route.path === '/home') {
           router.push('/')
         } else {
-          router.push('/single')
+          router.push('/home')
         }
       break;
 

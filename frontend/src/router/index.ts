@@ -13,11 +13,11 @@ const routes: Array<RouteRecordRaw> = [
   //   component: () => import('../views/Single.vue'),
   //   meta: { layout: 'default' }
   // },
-  // {
-  //   path: '/stats',
-  //   component: () => import('../layouts/Statistics.vue'),
-  //   meta: { layout: 'statistic' }
-  // },
+  {
+    path: '/stats',
+    component: () => import('../views/StatisticsView.vue'),
+    meta: { layout: 'statistic' }
+  },
   {
     path: '/home',
     component: () => import('../views/HomeView.vue'),
@@ -26,12 +26,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/terms',
     component: () => import('../views/TermsView.vue'),
-    meta: {layout: 'terms'}
+    meta: { layout: 'terms' }
   },
   {
     path: '/privacy-policy',
     component: () => import('../views/PrivacyPolicyView.vue'),
-    meta: {layout: 'privacyPolicy'}
+    meta: { layout: 'privacyPolicy' }
   },
   // {
   //   path: '/register',
