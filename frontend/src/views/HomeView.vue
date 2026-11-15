@@ -2,7 +2,10 @@
 	<!-- pheraps need slots? -->
 	<v-container>
 		<v-row no-gutters class="bg-blue-grey-lighten-4">
-      <v-col cols="7">
+      <v-col 
+        xl="7"
+        md="7"
+      >
         <v-sheet class="pa-2 ma-2 rounded">
           <h2 class="text-blue-grey">Быстрый магазин</h2>
         </v-sheet>
@@ -64,24 +67,29 @@
       </v-col>
       <!-- right side -->
       <v-col>
+
         <v-sheet class="pa-2 ma-2 rounded text-blue-grey">
           <h4>Случайные комментарии:</h4>
         </v-sheet>
-        <v-row no-gutters>
-          <v-sheet class="pa-2 ma-2 rounded">
-            <v-list lines="one">
-              <v-list-item 
-                class="bg-indigo ma-2 py-4 rounded"
-                v-for="n in 8"
-                :key="n"
-                :title="'тема: ' + n"
-                subtitle="какой то комментарий пользователя на последний пост с горнолыжки"
-              >
-              </v-list-item>
-            </v-list>
-          </v-sheet>
-        </v-row>
-      </v-col>
+
+          <v-row no-gutters >
+            <v-col cols="12" md="12">
+              <v-sheet class="pa-2 ma-2 rounded">
+                <v-list lines="one">
+                  <v-list-item 
+                    class="bg-indigo ma-2 py-4 rounded"
+                    v-for="n in 8"
+                    :key="n"
+                    :title="'тема: ' + n"
+                    subtitle="какой то комментарий пользователя на последний пост с горнолыжки"
+                  >
+                  </v-list-item>
+                </v-list>
+              </v-sheet>
+            </v-col>
+          </v-row>
+        </v-col>
+      
     </v-row>
 	</v-container>
 </template>

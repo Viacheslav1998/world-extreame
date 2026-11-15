@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
   //   meta: { layout: 'default' }
   // },
   {
-    path: '/stats',
+    path: '/stat',
     component: () => import('../views/StatisticsView.vue'),
     meta: { layout: 'statistic' }
   },
