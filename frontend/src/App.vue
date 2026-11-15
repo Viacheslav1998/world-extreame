@@ -20,7 +20,8 @@ const layouts = {
   notFound: defineAsyncComponent(() => import('./layouts/NotFoundLayout.vue')),
   register: defineAsyncComponent(() => import('./layouts/RegisterLayout.vue')),
   statistic: defineAsyncComponent(() => import('./layouts/StatisticLayout.vue')),
-  user: defineAsyncComponent(() => import('./layouts/User.vue'))
+  user: defineAsyncComponent(() => import('./layouts/User.vue')),
+  malinka: defineAsyncComponent(() => import('./layouts/social/Malinka.vue'))
 }
 
 // define how template use - [ use default ]

@@ -46,6 +46,11 @@ const routes: Array<RouteRecordRaw> = [
   //   meta: { hideLayout: true }
   // },
   {
+    path: '/malinka',
+    component: () => import('../views/social/MalinkaView.vue'),
+    meta: {layout: "malinka"}
+  },
+  {
     path: '/:pathMatch(.*)*',
     component: () => import('../views/NotFoundView.vue'),
     meta: {layout: 'notFound'}
