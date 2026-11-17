@@ -1,7 +1,7 @@
 <template>
   <v-container class="py-6" fluid>
     
-    <!-- 1. ШАПКА / ПРИВЕТСТВИЕ -->
+    <!-- 1. header -->
     <v-row class="mb-4">
       <v-col cols="12">
         <v-card class="pa-4 pa-md-6 rounded-xl" elevation="1">
@@ -16,7 +16,7 @@
               </p>
             </div>
             
-            <!-- Переключатель тем / языков -->
+            <!-- themes off-on / langs -->
             <div class="d-flex align-center gap-3">
               <v-btn
                 v-for="theme in themes"
@@ -36,7 +36,7 @@
       </v-col>
     </v-row>
 
-    <!-- 2. БЫСТРАЯ НАВИГАЦИЯ -->
+    <!-- 2. faster navi -->
     <v-row class="mb-4">
       <v-col cols="12" md="4">
         <v-card class="pa-4 rounded-xl h-100" variant="outlined">
@@ -69,7 +69,7 @@
       </v-col>
     </v-row>
 
-    <!-- 3. ГЛАВНЫЙ ГРАФИК МОНИТОРИНГА В РЕАЛЬНОМ ВРЕМЕНИ -->
+    <!-- 3. full graphics realtime -->
     <v-row class="mb-4">
       <v-col cols="12">
         <v-card class="pa-4 pa-md-6 rounded-xl" elevation="1">
@@ -87,9 +87,9 @@
       </v-col>
     </v-row>
 
-    <!-- 4. СЕТКА АНАЛИТИКИ (1 большой график слева, 4 маленьких справа) -->
+    <!-- 4. gred analitics (1 big graphics left, 4 little right) -->
     <v-row class="mb-4">
-      <!-- Левый большой график -->
+      <!-- big graphic -->
       <v-col cols="12" lg="6">
         <v-card class="pa-4 rounded-xl h-100 d-flex flex-column" elevation="1">
           <h3 class="text-subtitle-1 font-weight-bold mb-3">Денежный поток (Cash Flow)</h3>
@@ -104,7 +104,7 @@
         </v-card>
       </v-col>
 
-      <!-- Правые 4 маленьких графика -->
+      <!-- right 4 mini graphics -->
       <v-col cols="12" lg="6">
         <v-row>
           <v-col cols="12" sm="6" v-for="(stat, index) in smallStats" :key="index">
@@ -122,7 +122,7 @@
       </v-col>
     </v-row>
 
-    <!-- 5. ТАБЛИЦА ГОНЩИКОВ -->
+    <!-- 5. tables races -->
     <v-row class="mb-4">
       <v-col cols="12">
         <v-card class="rounded-xl" elevation="1">
@@ -135,7 +135,7 @@
             density="comfortable"
             item-key="name"
           >
-            <!-- Кастомное оформление статуса в таблице -->
+            <!-- castom status designer tables -->
             <template v-slot:[`item.status`]="{ item }">
               <v-chip
                 :color="getStatusColor(item.status)"
@@ -145,7 +145,7 @@
                 {{ item.status }}
               </v-chip>
             </template>
-            <!-- Форматирование дохода -->
+            <!-- formating out -->
             <template v-slot:[`item.profit`]="{ item }">
               <span :class="item.profit >= 0 ? 'text-success' : 'text-error'" class="font-weight-bold">
                 {{ item.profit > 0 ? '+' : '' }}{{ item.profit }} $
@@ -156,7 +156,7 @@
       </v-col>
     </v-row>
 
-    <!-- 6. ФУТЕР СТРАНИЦЫ -->
+    <!-- 6. footer -->
     <v-row>
       <v-col cols="12">
         <div class="d-flex flex-wrap justify-space-between align-center px-4 py-3 text-caption text-medium-emphasis bg-surface rounded-xl border">
