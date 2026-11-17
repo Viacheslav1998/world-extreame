@@ -1,6 +1,5 @@
 <template>
   <v-container class="py-6" fluid>
-    
     <!-- 1. header -->
     <v-row class="mb-4">
       <v-col cols="12">
