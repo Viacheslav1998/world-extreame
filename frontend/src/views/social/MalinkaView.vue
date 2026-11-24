@@ -1,17 +1,14 @@
 <template>
-  <section class="bg-pink-lighten-2 py-6">
+  <section class="bg-pink py-2">
     <v-container>
       <v-row class="d-flex justify-space-between">
-        <v-col  class="bg-white">
+        <v-col  class="">
           <div>
-            <span>asdads</span>
-            <h1>Malinca.compunity</h1>
+            <h1>Malinca.cute</h1>
           </div>
-          <div>
-            <h2>asdads</h2>
-          </div>
+          <div class="text-caption" >Загружай а не воображай</div> 
         </v-col>
-        <v-col cols="2" class="bg-black">
+        <v-col cols="4" class="">
           Внутренний блок
         </v-col>
       </v-row>
@@ -21,16 +18,38 @@
   <v-container>
     <v-row>
       <v-col
+        cols="12"
+        sm="4"
         v-for="v in 10"
         :key="v"
       >
-        <v-card title="Card title" subtitle="Subtitle" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi doloribus explicabo sapiente fuga quia dolores officia quaerat consectetur. Quisquam, omnis!">
+        <v-img
+          src="/navi/m2.jpg"
+          height="160"
+          cover
+        />
+        <v-card 
+          title="Новость века"
+          subtitle="новинка"
+          text="хедер замени на норм картинку - сделай с право кнопки - вернуться - о нас - политика с право лого какое то большое с пояснением
+           - фон сделай белый - кнопки попап выпад с статикой - огранить текст в карточках - 
+           добавь просмотры клазки
+           соц иконку поменяй на малинку.
+           " 
+        >
+          <v-card-actions>
+            <v-btn variant="text" color="primary" to="/details">
+              смотреть
+            </v-btn>
+            <v-spacer />
+            <v-btn icon="mdi-heart-outline" variant="text" />
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 
-  <section> 
+  <section class="bg-black"> 
     <v-container>
       <v-row>
         <v-col>
@@ -42,3 +61,10 @@
     </v-container>
   </section>
 </template>
+
+<script>
+</script>
+
+<style scoped>
+
+</style>
