@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-pink py-2">
+  <section class="head-bg py-12">
     <v-container>
       <v-row class="d-flex justify-space-between">
-        <v-col  class="">
+        <v-col>
           <div>
             <h1>Malinca.cute</h1>
           </div>
@@ -49,12 +49,12 @@
     </v-row>
   </v-container>
 
-  <section class="bg-black"> 
+  <section class="footer-bg"> 
     <v-container>
       <v-row>
         <v-col>
           <div> 
-            <h6>Учебный проект для портфолио. Не является настоящей социальной сетью <span style="color: orangered">Pet-Project</span></h6>
+            <h6>Учебный проект для портфолио. Не является настоящей социальной сетью <span style="color: black">Pet-Project</span></h6>
           </div>
         </v-col>
       </v-row>
@@ -66,5 +66,19 @@
 </script>
 
 <style scoped>
+.head-bg {
+  background-image: url('/socials/malinka/m0.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
 
+.footer-bg {
+  background-image: url('/socials/malinka/m1.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: black;
+}
 </style>

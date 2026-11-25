@@ -13,8 +13,9 @@
 <style scoped>
 .bg-area {
   background-color: pink;
-  background-image: url('/socials/malinka/field.jpg');
+  /* background-image: url('/socials/malinka/leo.jpg'); */
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
