@@ -8,9 +8,25 @@
           </div>
           <div class="text-caption" >Загружай а не воображай</div> 
         </v-col>
-        <v-col cols="4" class="">
-          Внутренний блок
-        </v-col>
+        <div class="d-none d-sm-flex align-center ga-1">
+          <v-btn to="/" variant="text">Главная</v-btn>
+          <v-btn to="/stat" variant="text">Статистика</v-btn>
+          <v-btn to="/contact" variant="text">Контакты</v-btn>
+        </div>
+
+        <div class="d-flex d-sm-none">
+          <v-menu location="bottom end">
+            <template #activator="{ props }">
+              <v-btn icon="mdi-menu" variant="text" v-bind="props"></v-btn>
+            </template>
+            
+            <v-list density="compact" class="mt-2">
+              <v-list-item to="/" title="Главная" prepend-icon="mdi-home"></v-list-item>
+              <v-list-item to="/stat" title="Статистика" prepend-icon="mdi-chart-bar"></v-list-item>
+              <v-list-item to="/contact" title="Контакты" prepend-icon="mdi-email"></v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
       </v-row>
     </v-container>
   </section>
@@ -29,6 +45,7 @@
           cover
         />
         <v-card 
+          class="card-text-clamp"
           title="Новость века"
           subtitle="новинка"
           text="хедер замени на норм картинку - сделай с право кнопки - вернуться - о нас - политика с право лого какое то большое с пояснением
@@ -81,4 +98,5 @@
   background-size: cover;
   color: black;
 }
+
 </style>
