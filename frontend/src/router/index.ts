@@ -8,11 +8,11 @@ const routes: Array<RouteRecordRaw> = [
     meta: { layout: 'main' }
   },
   // single{id}/{name} / items{}/ cats{}/ product{name}/{id}
-  // {
-  //   path: '/single',
-  //   component: () => import('../views/Single.vue'),
-  //   meta: { layout: 'default' }
-  // },
+  {
+    path: '/single',
+    component: () => import('../views/SingleView.vue'),
+    meta: { layout: 'single' }
+  },
   {
     path: '/stat',
     component: () => import('../views/StatisticsView.vue'),

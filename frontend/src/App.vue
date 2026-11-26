@@ -14,6 +14,7 @@ const route = useRoute();
 const layouts = {
   main: defineAsyncComponent(() => import('./layouts/MainLayout.vue')),
   home: defineAsyncComponent(() => import('./layouts/HomeLayout.vue')),
+  single: defineAsyncComponent(() => import('./layouts/SingleLayout.vue')),
   privacyPolicy: defineAsyncComponent(() => import('./layouts/PrivacyPolicyLayout.vue')),
   terms: defineAsyncComponent(() => import('./layouts/TermsLayouts.vue')),
   admin: defineAsyncComponent(() => import('./layouts/Admin.vue')),
