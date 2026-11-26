@@ -173,9 +173,9 @@ const handleAction = (actionType: ActionType): void => {
 }
 
 const icons: Icon[] = [
-  {  icoUrl: '/footer/raspberries.png', to: '/', class: 'purple'},
-  {  icoUrl: '/news/settings.png', to: '/', class: 'purple-accent-3' },
-  {  icoUrl: '/news/settings.png', to: '/', class: 'light-green' },
+  {  icoUrl: '/footer/nature.png', to: '/', class: 'blue-lighten-5'},
+  {  icoUrl: '/footer/sign.png', to: '/', class: 'light-green-accent-2' },
+  {  icoUrl: '/footer/happy.png', to: '/', class: 'grey-darken-4' },
   {  icoUrl: '/footer/fruit.png', to: '/', class: 'pink-lighten-4' }
 ]
 
