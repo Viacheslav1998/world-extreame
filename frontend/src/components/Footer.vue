@@ -30,14 +30,23 @@
 
     <!-- main content footer -->
     <div class="text-center d-flex flex-column ga-2 py-4 w-100">
+      <div>
+        Social Agents
+      </div>
       <div class="d-flex ga-3 justify-center">
         <v-btn
           v-for="icon in icons"
-          :key="icon.name"
-          :icon="icon.name"
-          density="comfortable"
-          variant="text"
-        ></v-btn>
+          :to="icon.to"
+          :color="icon.class"
+          variant="flat"
+        >
+          <v-img 
+            :src="icon.icoUrl"
+            width="24"
+            height="24"
+            alt="icon"
+          />
+        </v-btn>
       </div>
 
       <v-divider class="my-2 mx-auto" thickness="2" width="50"></v-divider>
@@ -100,7 +109,9 @@ import { ref, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 interface Icon {
-  name: string
+  icoUrl: string,
+  to: string,
+  class: string,
 }
 
 interface MenuItem {
@@ -162,10 +173,10 @@ const handleAction = (actionType: ActionType): void => {
 }
 
 const icons: Icon[] = [
-  {  name: 'mdi-facebook' },
-  {  name: 'mdi-twitter' },
-  {  name: 'mdi-linkedin' },
-  {  name: 'mdi-instagram' }
+  {  icoUrl: '/footer/raspberries.png', to: '/', class: 'purple'},
+  {  icoUrl: '/news/settings.png', to: '/', class: 'purple-accent-3' },
+  {  icoUrl: '/news/settings.png', to: '/', class: 'light-green' },
+  {  icoUrl: '/footer/fruit.png', to: '/', class: 'pink-lighten-4' }
 ]
 
 const MenuColumns: MenuColumn[] = [
