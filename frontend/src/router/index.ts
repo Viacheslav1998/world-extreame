@@ -33,12 +33,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/PrivacyPolicyView.vue'),
     meta: { layout: 'privacyPolicy' }
   },
-  // {
-  //   path: '/register',
-  //   name: 'Register',
-  //   component: Register,
-  //   meta: { hideLayout: true }
-  // },
+  {
+    path: '/register',
+    component: () => import('../views/RegisterView.vue'),
+    meta: { layout: 'register' }
+  },
   // {
   //   path: '/adm/admin',
   //   name: 'Admin',

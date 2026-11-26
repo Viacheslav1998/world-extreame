@@ -101,7 +101,6 @@
 </template>
 
 <style>
-
 </style>
 
 <script setup lang="ts">
@@ -176,7 +175,7 @@ const icons: Icon[] = [
   {  icoUrl: '/footer/nature.png', to: '/', class: 'blue-lighten-5'},
   {  icoUrl: '/footer/sign.png', to: '/', class: 'light-green-accent-2' },
   {  icoUrl: '/footer/happy.png', to: '/', class: 'grey-darken-4' },
-  {  icoUrl: '/footer/fruit.png', to: '/', class: 'pink-lighten-4' }
+  {  icoUrl: '/footer/fruit.png', to: '/malinka', class: 'pink-lighten-4' }
 ]
 
 const MenuColumns: MenuColumn[] = [
